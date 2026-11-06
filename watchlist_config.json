@@ -1,0 +1,14 @@
+{
+  "therapeutic_area": "肥胖症 / 减重药",
+  "note": "Alpha 关注名单（候选，2026-10-20 由 Claude 用 ClinicalTrials.gov 接口拉取，待 Emma 确认）。增删试验只改这个文件。",
+  "trials": [
+    {"nct": "NCT07153471", "company": "Eli Lilly", "label": "Orforglipron（肥胖/超重 + 膝骨关节炎）"},
+    {"nct": "NCT07215559", "company": "Eli Lilly", "label": "Macupatide + Eloralintide（单用或联用）"},
+    {"nct": "NCT07881432", "company": "Eli Lilly", "label": "Eloralintide + Tirzepatide（无 2 型糖尿病的肥胖）"},
+    {"nct": "NCT07011667", "company": "Novo Nordisk", "label": "CagriSema（Cagrilintide + Semaglutide）"},
+    {"nct": "NCT07533175", "company": "Novo Nordisk", "label": "NNC0487-0111（AMAZE 2）"},
+    {"nct": "NCT07037433", "company": "Amgen", "label": "MariTide（Maridebart cafraglutide）心血管结局试验"},
+    {"nct": "NCT07667803", "company": "AstraZeneca", "label": "Elecoglipron（主方案试验）"},
+    {"nct": "NCT07784725", "company": "AstraZeneca", "label": "AZD6234（Lenbelintide）"}
+  ]
+}

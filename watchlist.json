@@ -1,0 +1,14 @@
+{
+  "fetched_at": null,
+  "source_note": "初始数据：2026-10-20 手动记录。部署后运行一次 GitHub Actions「Update watchlist and deploy」，这里会被自动替换成 ClinicalTrials.gov 的最新数据。",
+  "trials": [
+    {"nct": "NCT07153471", "company": "Eli Lilly", "label": "Orforglipron（肥胖/超重 + 膝骨关节炎）", "phase": "PHASE3", "overall_status": "ACTIVE_NOT_RECRUITING"},
+    {"nct": "NCT07215559", "company": "Eli Lilly", "label": "Macupatide + Eloralintide（单用或联用）", "phase": "PHASE2", "overall_status": "ACTIVE_NOT_RECRUITING"},
+    {"nct": "NCT07881432", "company": "Eli Lilly", "label": "Eloralintide + Tirzepatide（无 2 型糖尿病的肥胖）", "phase": "PHASE3", "overall_status": "NOT_YET_RECRUITING"},
+    {"nct": "NCT07011667", "company": "Novo Nordisk", "label": "CagriSema（Cagrilintide + Semaglutide）", "phase": "PHASE3", "overall_status": "ACTIVE_NOT_RECRUITING"},
+    {"nct": "NCT07533175", "company": "Novo Nordisk", "label": "NNC0487-0111（AMAZE 2）", "phase": "PHASE3", "overall_status": "RECRUITING"},
+    {"nct": "NCT07037433", "company": "Amgen", "label": "MariTide（Maridebart cafraglutide）心血管结局试验", "phase": "PHASE3", "overall_status": "RECRUITING"},
+    {"nct": "NCT07667803", "company": "AstraZeneca", "label": "Elecoglipron（主方案试验）", "phase": "PHASE3", "overall_status": "RECRUITING"},
+    {"nct": "NCT07784725", "company": "AstraZeneca", "label": "AZD6234（Lenbelintide）", "phase": "PHASE3", "overall_status": "RECRUITING"}
+  ]
+}

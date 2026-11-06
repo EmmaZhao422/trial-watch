@@ -1,0 +1,138 @@
+{
+  "week_label": "Alpha 样例简报 · 3 个真实变化",
+  "note": "简报由 Agent（ChatGPT + 网页搜索 + 指令 v0）生成，文字未改。verification 字段在人工核对后更新。",
+  "changes": [
+    {
+      "no": 1,
+      "nct": "NCT07153471",
+      "sponsor": "Eli Lilly",
+      "drug": "Orforglipron（肥胖/超重 + 膝骨关节炎）",
+      "field": "Overall Status",
+      "old": "Recruiting",
+      "new": "Active, not recruiting",
+      "change_date": "2026-10-01",
+      "history_url": "https://clinicaltrials.gov/study/NCT07153471?tab=history&a=24&b=25#version-content-panel",
+      "status": "pending",
+      "status_note": "人工基准简报撰写中。为保证“人工 vs Agent”对比公平，这个变化先由人手写，再让 Agent 运行。",
+      "runs": []
+    },
+    {
+      "no": 2,
+      "nct": "NCT07533175",
+      "sponsor": "Novo Nordisk",
+      "drug": "NNC0487-0111（AMAZE 2）",
+      "field": "Primary Completion Date",
+      "old": "2028-05-15",
+      "new": "2028-08-07",
+      "change_date": "2026-05-18",
+      "history_url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel",
+      "status": "generated",
+      "verification": "unverified",
+      "runs": [
+        {
+          "label": "第 1 次运行",
+          "run_at": "2026-10-25 00:45 ET",
+          "model": "GPT-6 Astra，推理强度 Medium",
+          "instruction": "v0",
+          "importance": "Medium",
+          "importance_note": "The revised endpoint timing matters for monitoring this Phase 3 programme, but does not establish a delayed launch.",
+          "what_happened": [
+            {"text": "The history comparison confirms the supplied dates; version 3 was submitted on May 18 and posted on May 19, 2026.", "links": [["Record History", "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel"]]},
+            {"text": "Overall status remained Recruiting, and estimated Study Completion remained August 7, 2028.", "links": [["Record History", "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel"]]}
+          ],
+          "sources_say": [
+            {"text": "Novo Nordisk's Q1 presentation describes AMAZE 2 as an 84-week placebo-controlled study, with weight loss as its primary endpoint, in people with type 2 diabetes.", "links": [["Q1, slide 43", "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q1-2026-investor-presentation.pdf"]]},
+            {"text": "Its Q2 presentation retains that description and labels project timelines as directional.", "links": [["Q2, slide 39", "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q2-2026-Full%20presentation.pdf"]]},
+            {"text": "The August financial report discusses other zenagamtide trials, HF-POLARIS and AMAZE 8, rather than explaining this AMAZE 2 date revision.", "links": [["Financial report, page 19", "https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm"]]}
+          ],
+          "evidence_insufficient": true,
+          "unclear": ["Why was the estimate revised?", "Does this affect the results-release schedule?", "Is the change operational, administrative, or related to another factor?"],
+          "analyst_view": [
+            "[Inference] This warrants tracking the timing of AMAZE 2 evidence, with moderate confidence in its monitoring importance.",
+            "[Inference] Confidence in any cause or competitive impact is low; this revision alone cannot establish a setback in efficacy, safety, or launch timing relative to competitors."
+          ],
+          "sources": [
+            {"title": "NCT07533175 history, v2–v3", "publisher": "ClinicalTrials.gov", "date": "2026-05-19 posted", "url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel", "supports": "Change; section 1"},
+            {"title": "Q1 investor presentation", "publisher": "Novo Nordisk", "date": "Q1 2026; publication day unverified", "url": "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q1-2026-investor-presentation.pdf", "supports": "Section 2, bullet 1"},
+            {"title": "Q2 investor presentation", "publisher": "Novo Nordisk", "date": "Q2 2026; publication day unverified", "url": "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q2-2026-Full%20presentation.pdf", "supports": "Section 2, bullet 2"},
+            {"title": "H1 financial report, Form 6-K", "publisher": "Novo Nordisk / SEC", "date": "2026-08-04", "url": "https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm", "supports": "Section 2, bullet 3"}
+          ],
+          "searches": ["\"NCT07533175\" delay primary completion", "\"AMAZE 2\" \"2026\" Novo Nordisk", "\"NNC0487-0111\" \"May\" \"2026\" delay", "\"AMAZE 2\" delay recruitment completion Novo", "\"zenagamtide\" \"2026\" \"delay\" AMAZE"]
+        },
+        {
+          "label": "第 2 次运行（同一指令重跑，检查稳定性）",
+          "run_at": "2026-10-25 01:03 ET",
+          "model": "模型名未能读取",
+          "instruction": "v0",
+          "importance": "Medium",
+          "importance_note": "A later primary-completion estimate matters for monitoring the trial's timeline, but does not establish a delayed launch.",
+          "what_happened": [
+            {"text": "Version 2 versus version 3 shows the estimated primary completion moving from May 15 to August 7, 2028, matching the input; May 18 is the submission date, while May 19 is the posting date.", "links": [["Record History", "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel"]]},
+            {"text": "Recruiting status, estimated enrollment of 630, and estimated study completion of August 7, 2028 remained unchanged in that comparison.", "links": [["Record History", "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel"]]}
+          ],
+          "sources_say": [
+            {"text": "Novo Nordisk's May 6 report states that the zenagamtide AMAZE phase 3 programme had started.", "links": [["Q1 report", "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916542"]]},
+            {"text": "The Q2 investor presentation describes AMAZE 2 as an 84-week placebo-controlled weight-loss trial in people with type 2 diabetes.", "links": [["Presentation, slide 39", "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q2-2026-Full%20presentation.pdf"]]}
+          ],
+          "evidence_insufficient": true,
+          "unclear": ["What prompted the revised estimate?", "Was it a scheduling revision or a record correction?", "Does it affect the timing of results or any filing?"],
+          "analyst_view": [
+            "[Inference] The revised estimate could shift expectations for when primary-endpoint data become available, but confidence in any readout impact is low.",
+            "[Inference] This change alone is insufficient to conclude that the drug has a safety, efficacy, or recruitment problem.",
+            "[Inference] Any resulting advantage for competitors remains uncertain without an explained change to development or launch timing."
+          ],
+          "sources": [
+            {"title": "NCT07533175, versions 2–3", "publisher": "ClinicalTrials.gov", "date": "2026-04-22 / 2026-05-18 submitted", "url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel", "supports": "Section 1: dates and unchanged fields"},
+            {"title": "Q1 2026 financial report", "publisher": "Novo Nordisk", "date": "2026-05-06", "url": "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916542", "supports": "Section 2: programme started"},
+            {"title": "Q2 2026 Investor Presentation, slide 39", "publisher": "Novo Nordisk", "date": "Q2 2026", "url": "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q2-2026-Full%20presentation.pdf", "supports": "Section 2: trial design"}
+          ],
+          "searches": ["\"NCT07533175\" completion delay", "\"AMAZE 2\" Novo Nordisk May 2026", "site.novonordisk.com \"NNC0487-0111\" 2026", "\"AMAZE 2\" \"delay\"", "site.novonordisk.com \"AMAZE\" \"2026\" \"May\"", "\"NCT07533175\" \"2028-05-15\""]
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "nct": "NCT07011667",
+      "sponsor": "Novo Nordisk",
+      "drug": "CagriSema（Cagrilintide + Semaglutide）",
+      "field": "Enrollment；Primary Completion Date",
+      "old": "600（预计）；2026-12-15",
+      "new": "609（实际）；2027-03-01",
+      "change_date": "2025-12-05",
+      "history_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel",
+      "status": "generated",
+      "verification": "unverified",
+      "runs": [
+        {
+          "label": "第 1 次运行",
+          "run_at": "2026-10-25 00:53 ET",
+          "model": "模型名未能读取",
+          "instruction": "v0",
+          "importance": "Medium",
+          "importance_note": "The later primary-completion estimate matters for tracking upcoming evidence, while the enrollment update distinguishes a planned sample from an actual count.",
+          "what_happened": [
+            {"text": "Version 3–4 matches the supplied changes; the primary-completion estimate moved 76 days later.", "links": [["History", "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel"]]},
+            {"text": "Status remained Active, not recruiting, and the primary outcome remained relative body-weight change from baseline to week 80.", "links": [["History", "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel"]]}
+          ],
+          "sources_say": [
+            {"text": "Novo's full-year 2024 presentation described REDEFINE 11 as exploring additional CagriSema weight-loss potential through dose re-escalation and longer duration.", "links": [["Presentation, slide 15", "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/irmaterial/annual_report/2025/q4-2024-investor-presentation.pdf"]]},
+            {"text": "Its 2025 annual report lists REDEFINE 8 and 11 as initiated trials investigating long-term weight loss and full weight-loss potential.", "links": [["Annual report", "https://annualreport.novonordisk.com/2025/strategic-aspirations/innovation-and-therapeutic-focus.html"]]}
+          ],
+          "evidence_insufficient": true,
+          "unclear": ["Why was the primary-completion estimate revised?", "Were the two updates causally related?", "Was 609 simply the final enrollment count?", "Neither company source explains this specific registry revision."],
+          "analyst_view": [
+            "[Inference] The enrollment update may reflect final participant accounting, but confidence in that explanation is low.",
+            "[Inference] The later estimate may shift when this study adds competitive evidence, with moderate confidence in its monitoring relevance.",
+            "[Inference] These changes alone do not establish poorer efficacy, safety problems, or an advantage for competitors; confidence in any such conclusion is low."
+          ],
+          "sources": [
+            {"title": "NCT07011667, v3–v4", "publisher": "ClinicalTrials.gov", "date": "v4 submitted 2025-12-05", "url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel", "supports": "Change; section 1"},
+            {"title": "Full-year 2024 investor presentation, slide 15", "publisher": "Novo Nordisk", "date": "Publication day unconfirmed", "url": "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/irmaterial/annual_report/2025/q4-2024-investor-presentation.pdf", "supports": "Section 2, bullet 1"},
+            {"title": "Annual Report 2025: Innovation and therapeutic focus", "publisher": "Novo Nordisk", "date": "Publication day unconfirmed", "url": "https://annualreport.novonordisk.com/2025/strategic-aspirations/innovation-and-therapeutic-focus.html", "supports": "Section 2, bullet 2"}
+          ],
+          "searches": ["\"NCT07011667\" enrollment completion delay", "\"NN9838-8484\" CagriSema", "site.novonordisk.com CagriSema \"REDEFINE 11\" \"2025\"", "\"REDEFINE 11\" \"delay\" \"December\" 2025", "\"NCT07011667\" \"609\" \"2027\""]
+        }
+      ]
+    }
+  ]
+}
