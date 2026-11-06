@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T03:46:18+00:00",
+  "fetched_at": "2026-11-06T17:59:00+00:00",
   "source_note": "由 GitHub Actions 每天自动从 ClinicalTrials.gov API v2 拉取。",
   "trials": [
     {
@@ -74,13 +74,13 @@
       "acronym": "AMAZE 2",
       "sponsor": "Novo Nordisk A/S",
       "phase": "PHASE3",
-      "overall_status": "RECRUITING",
-      "enrollment": 630,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "enrollment": 638,
       "enrollment_type": "ESTIMATED",
       "primary_completion": "2028-08-07",
       "primary_completion_type": "ESTIMATED",
       "study_completion": "2028-08-07",
-      "last_update_posted": "2026-09-30"
+      "last_update_posted": "2026-11-06"
     },
     {
       "nct": "NCT07037433",
