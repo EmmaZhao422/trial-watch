@@ -71,7 +71,7 @@ def main():
 
     out = {
         "fetched_at": now.isoformat(timespec="seconds"),
-        "source_note": "由 GitHub Actions 每天自动从 ClinicalTrials.gov API v2 拉取。",
+        "source_note": "Updated automatically every day from the ClinicalTrials.gov API v2 by GitHub Actions.",
         "trials": rows,
     }
     text = json.dumps(out, ensure_ascii=False, indent=2)

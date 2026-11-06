@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trial Watch · 竞品临床试验情报 Agent</title>
-<meta name="description" content="竞品临床试验情报 Agent（Alpha）：自动跟踪竞品试验登记信息，由 Agent 调查变化原因并写成带来源的简报。">
+<title>Trial Watch · Competitor Clinical Trial Intelligence Agent</title>
+<meta name="description" content="Trial Watch (alpha): tracks competitors' clinical trial records daily; an AI Agent investigates changes and writes sourced briefs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* Layout idea: an analyst's monitoring console — sticky top bar, brief cards with a severity stripe, a registry-style watchlist table, and an evaluation panel that keeps "verified / unverified" visible everywhere. */
 :root{
@@ -22,8 +22,8 @@
   --warn:#94620a; --warn-bg:#fbefd5;
   --hi:#b23a2e; --hi-bg:#fbe5e2;
   --todo:#667180; --todo-bg:#eceff2;
-  --font-display:"IBM Plex Sans","Noto Sans SC",system-ui,sans-serif;
-  --font-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-display:"IBM Plex Sans",system-ui,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   color-scheme:light;
 }
@@ -128,12 +128,12 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 <body>
 
 <div class="top"><div class="top-in">
-  <div class="brand"><b>Trial Watch</b><span>竞品临床试验情报 Agent</span><span class="tag">ALPHA</span></div>
-  <nav aria-label="页面导航">
-    <a href="#briefs">本周简报</a>
-    <a href="#watchlist">关注名单</a>
-    <a href="#how">工作原理</a>
-    <a href="#eval">Alpha 评测</a>
+  <div class="brand"><b>Trial Watch</b><span>Competitor Clinical Trial Intelligence Agent</span><span class="tag">ALPHA</span></div>
+  <nav aria-label="Page sections">
+    <a href="#briefs">Briefs</a>
+    <a href="#watchlist">Watchlist</a>
+    <a href="#how">How it works</a>
+    <a href="#eval">Alpha evaluation</a>
   </nav>
 </div></div>
 
@@ -141,101 +141,101 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 
 <section class="hero">
   <div>
-    <h1>竞品试验一有变化，Agent 去查原因，写成带来源的简报</h1>
-    <p>面向药企竞争情报和商业分析团队。系统每天从 ClinicalTrials.gov 更新关注名单；发现登记信息变化后，由 Agent 自己决定去查哪些公开来源（公司公告、投资者材料、监管文件等），按四段写成简报：<b>发生了什么 / 来源怎么说 / 还不清楚什么 / 分析判断</b>。每条事实附链接，查不到就写“证据不足”。</p>
-    <p class="sub">当前领域：肥胖症 / 减重药 · Lilly、Novo Nordisk、Amgen、AstraZeneca 的二、三期试验</p>
+    <h1>When a competitor's trial record changes, an Agent finds out why and writes a sourced brief</h1>
+    <p>Built for pharma competitive-intelligence and commercial-analytics teams. The watchlist refreshes from ClinicalTrials.gov every day. When a registry record changes, the Agent decides for itself which public sources to check (company announcements, investor materials, regulatory filings and more) and writes a four-part brief: <b>What happened / What sources say / What is still unclear / Analyst view</b>. Every fact links to its source; if nothing explains the change, the brief says "Evidence insufficient".</p>
+    <p class="sub">Current focus: obesity / weight-loss drugs · Phase 2 and 3 trials from Lilly, Novo Nordisk, Amgen and AstraZeneca</p>
   </div>
   <div class="stats" id="stats">
-    <div class="stat"><div class="v" id="sTrials">8</div><div class="k">关注中的试验</div></div>
-    <div class="stat"><div class="v">3</div><div class="k">真实变化（开发案例）</div></div>
-    <div class="stat"><div class="v">3</div><div class="k">Agent 已生成简报次数</div></div>
-    <div class="stat"><div class="v" id="sUpdated">—</div><div class="k">数据最近更新</div></div>
+    <div class="stat"><div class="v" id="sTrials">8</div><div class="k">Trials on the watchlist</div></div>
+    <div class="stat"><div class="v">3</div><div class="k">Real registry changes (development cases)</div></div>
+    <div class="stat"><div class="v">3</div><div class="k">Agent runs so far</div></div>
+    <div class="stat"><div class="v" id="sUpdated">—</div><div class="k">Data last refreshed</div></div>
   </div>
 </section>
 
 <section id="briefs">
   <div class="sec-head">
-    <h2>本周简报</h2>
-    <span class="pill warn">⚠ Agent 输出，人工核对进行中</span>
+    <h2>Briefs</h2>
+    <span class="pill warn">⚠ Agent output · human review in progress</span>
   </div>
-  <div class="cards" id="cards"><p class="sub">正在加载简报…</p></div>
+  <div class="cards" id="cards"><p class="sub">Loading briefs…</p></div>
 </section>
 
 <section id="watchlist">
   <div class="sec-head">
-    <h2>关注名单</h2>
-    <span class="sub" id="wlNote">正在加载…</span>
+    <h2>Watchlist</h2>
+    <span class="sub" id="wlNote">Loading…</span>
   </div>
   <div class="tbl"><table>
-    <thead><tr><th>NCT 编号</th><th>公司</th><th>药物 / 试验</th><th>阶段</th><th>状态</th><th>入组人数</th><th>主要完成日期</th><th>登记最近更新</th></tr></thead>
+    <thead><tr><th>NCT ID</th><th>Sponsor</th><th>Drug / trial</th><th>Phase</th><th>Status</th><th>Enrollment</th><th>Primary completion</th><th>Record last updated</th></tr></thead>
     <tbody id="wlBody"></tbody>
   </table></div>
   <div class="panel" style="margin-top:14px">
-    <h3>查询任意试验</h3>
-    <p class="sub">输入 NCT 编号，直接从 ClinicalTrials.gov 实时查询当前状态。</p>
+    <h3>Look up any trial</h3>
+    <p class="sub">Enter an NCT ID to get its current record live from ClinicalTrials.gov.</p>
     <form class="lookup" id="lookupForm">
-      <label for="nctInput" class="sub">NCT 编号</label>
+      <label for="nctInput" class="sub">NCT ID</label>
       <input id="nctInput" value="NCT07533175" autocomplete="off" spellcheck="false">
-      <button class="btn" type="submit">查询</button>
+      <button class="btn" type="submit">Look up</button>
     </form>
     <div id="lookupOut"></div>
   </div>
 </section>
 
 <section id="how">
-  <div class="sec-head"><h2>工作原理</h2><span class="sub">标出每一步目前是自动、Agent 还是人工</span></div>
+  <div class="sec-head"><h2>How it works</h2><span class="sub">Each step is marked as automated, done by the Agent, or done by hand</span></div>
   <div class="flow">
-    <div class="step"><span class="n">01</span><b>关注名单</b><span>选定领域和竞品关键试验</span><span class="pill todo">人工</span></div>
-    <div class="step"><span class="n">02</span><b>每日更新</b><span>GitHub Actions 每天从 ClinicalTrials.gov API 拉取，保存快照</span><span class="pill ok">自动</span></div>
-    <div class="step"><span class="n">03</span><b>发现变化</b><span>对比新旧版本，找出有意义的字段变化。Alpha 用变更历史手动找；之后用 SQL 对比每日快照</span><span class="pill todo">人工 → SQL</span></div>
-    <div class="step"><span class="n">04</span><b>调查原因</b><span>Agent 自己决定搜什么、打开哪些来源，只用提到该试验或药物的来源</span><span class="pill acc">Agent</span></div>
-    <div class="step"><span class="n">05</span><b>写成简报</b><span>四段式 + 来源表 + 搜索记录；推断单独标注；查不到写“证据不足”</span><span class="pill acc">Agent</span></div>
-    <div class="step"><span class="n">06</span><b>人工核对</b><span>每条说法标 对 / 错 / 找不到来源，用来改进指令</span><span class="pill todo">人工</span></div>
+    <div class="step"><span class="n">01</span><b>Watchlist</b><span>Pick a therapeutic area and the competitors' key trials</span><span class="pill todo">Manual</span></div>
+    <div class="step"><span class="n">02</span><b>Daily refresh</b><span>GitHub Actions pulls every trial from the ClinicalTrials.gov API each day and saves a snapshot</span><span class="pill ok">Automated</span></div>
+    <div class="step"><span class="n">03</span><b>Detect changes</b><span>Compare old and new versions to find meaningful field changes. In the alpha this is done by hand from the record history; next, SQL over the daily snapshots</span><span class="pill todo">Manual → SQL</span></div>
+    <div class="step"><span class="n">04</span><b>Investigate</b><span>The Agent chooses what to search and which sources to open, and only uses sources that mention the trial or drug</span><span class="pill acc">Agent</span></div>
+    <div class="step"><span class="n">05</span><b>Write the brief</b><span>Four parts + source table + search log; inferences labeled; "Evidence insufficient" when nothing explains the change</span><span class="pill acc">Agent</span></div>
+    <div class="step"><span class="n">06</span><b>Human review</b><span>Every claim is marked correct / wrong / no source found, and the findings feed back into the instruction</span><span class="pill todo">Manual</span></div>
   </div>
   <details style="margin-top:14px">
-    <summary>Agent 指令 v0 的关键规则</summary>
+    <summary>Key rules in Agent instruction v0</summary>
     <div class="dbody"><ul>
-      <li>先打开变更历史，确认变化本身；与输入不符要在开头说明</li>
-      <li>只用真正打开过、并且提到这个试验或药物的来源</li>
-      <li>第 1、2 段每句话都要有链接；推断只能放第 4 段，句首标 [Inference]</li>
-      <li>不许编造网址、引语、数字或日期；不确定就不写</li>
-      <li>“证据不足”是可接受的答案，不许为了填空去猜原因</li>
-      <li>列出所有用过的搜索词，方便复查</li>
+      <li>Open the record history first and confirm the change; flag any mismatch with the input at the top</li>
+      <li>Only use sources it actually opened that mention this trial or drug</li>
+      <li>Every sentence in parts 1 and 2 needs a link; inferences go only in part 4, each starting with [Inference]</li>
+      <li>Never invent a URL, quote, number or date; if unsure, leave it out</li>
+      <li>"Evidence insufficient" is an acceptable answer; never guess a reason to fill the gap</li>
+      <li>List every search query used, so the work can be checked</li>
     </ul></div>
   </details>
 </section>
 
 <section id="eval">
-  <div class="sec-head"><h2>Alpha 评测</h2><span class="sub">这一版要证明：给一个真实变化，Agent 能自己找来源、写出带链接的简报，并经得起核对</span></div>
+  <div class="sec-head"><h2>Alpha evaluation</h2><span class="sub">Goal of this version: given a real registry change, the Agent finds sources on its own, writes a linked brief, and the brief holds up under review</span></div>
   <div class="cols">
     <div class="panel">
-      <h3 style="margin-bottom:8px">早期观察 <span class="pill warn">⚠ 未核对来源</span></h3>
+      <h3 style="margin-bottom:8px">Early observations <span class="pill warn">⚠ sources not yet verified</span></h3>
       <ol>
-        <li><b>格式和诚实度达标：</b>3 次运行都按四段输出，事实附链接，推断单独标注；没找到解释时都写了“证据不足”。</li>
-        <li><b>结论稳定，路径不稳定：</b>同一变化跑两次，结论相同，引用来源只重合 1 个。</li>
-        <li><b>“凑数来源”：</b>会列出只提到药物、却不能解释这次变化的来源。</li>
-        <li><b>引入输入里没有的名字：</b>zenagamtide、REDEFINE 11。初步查证两个都对得上，待人工复核。</li>
-        <li><b>可能漏掉相关来源：</b>Novo 2026-02 的公告提到 REDEFINE 11 预计 2027 上半年出数据，与变化 #3 的新日期一致，Agent 未引用。</li>
+        <li><b>Format and honesty held up:</b> all 3 runs used the four-part format, linked their facts and labeled inferences separately; none found an explanation, and all said "Evidence insufficient" instead of guessing.</li>
+        <li><b>Stable conclusion, unstable path:</b> running the same change twice gave the same conclusion, but only 1 cited source overlapped.</li>
+        <li><b>Filler sources:</b> the Agent cites sources that mention the drug but do not explain this change.</li>
+        <li><b>Names not in the input:</b> the Agent introduced "zenagamtide" and "REDEFINE 11". A first check suggests both match; pending human review.</li>
+        <li><b>Possibly missed a relevant source:</b> a Feb 2026 Novo Nordisk announcement expects REDEFINE 11 data in 1H 2027, consistent with change #3's new date; the Agent did not cite it.</li>
       </ol>
     </div>
     <div class="panel">
-      <h3 style="margin-bottom:8px">核对进度与下一步</h3>
+      <h3 style="margin-bottom:8px">Review status and next steps</h3>
       <ul>
-        <li><span class="pill warn">进行中</span> 逐条核对 Agent 的每句说法（对 / 错 / 找不到）</li>
-        <li><span class="pill todo">待做</span> 人工手写变化 #1 的简报，作为对照基准</li>
-        <li><span class="pill todo">待做</span> 根据问题把指令改成 v1，重跑并比较</li>
-        <li><span class="pill todo">之后</span> 扩到 15–20 个真实变化；开发案例和评测案例分开</li>
-        <li><span class="pill todo">之后</span> 三组公平对比：只用登记信息 / 固定检索流程 / Agent</li>
-        <li><span class="pill todo">之后</span> 业内人士盲评三组输出</li>
+        <li><span class="pill warn">In progress</span> Check every Agent claim (correct / wrong / no source)</li>
+        <li><span class="pill todo">To do</span> Hand-write the brief for change #1 as a human baseline</li>
+        <li><span class="pill todo">To do</span> Revise the instruction to v1 based on the issues found, re-run and compare</li>
+        <li><span class="pill todo">Later</span> Scale to 15–20 real changes, with separate development and test cases</li>
+        <li><span class="pill todo">Later</span> Fair three-way comparison: registry-only summary / fixed search pipeline / Agent</li>
+        <li><span class="pill todo">Later</span> Blind scoring of the three outputs by an industry reviewer</li>
       </ul>
     </div>
   </div>
   <div class="panel" style="margin-top:14px">
-    <h3 style="margin-bottom:6px">已知局限</h3>
+    <h3 style="margin-bottom:6px">Known limitations</h3>
     <ul>
-      <li>简报目前是离线生成：Agent 在 ChatGPT（开网页搜索）里按指令运行，结果再放到网站上；网站本身还不能一键触发 Agent。</li>
-      <li>只有 3 个开发案例，且都是“证据不足”，还没测到“能查到原因”的情况。</li>
-      <li>还不能报告准确率，要等逐条核对完成。</li>
+      <li>Briefs are generated offline: the Agent runs in ChatGPT (with web search) under the instruction, and the results are then published here. The site cannot trigger the Agent yet.</li>
+      <li>Only 3 development cases so far, all "Evidence insufficient"; cases where a cause can be found are not tested yet.</li>
+      <li>No accuracy figure yet; that comes after the claim-by-claim review.</li>
     </ul>
   </div>
 </section>
@@ -243,70 +243,69 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 </main>
 
 <footer>
-  <span>Emma Zhao（赵芝玉）· Duke University · 求职作品项目（进行中）</span>
-  <span>分工：选题与研究设计、领域和案例选择、事实核对由 Emma 负责；指令 v0、关注名单候选和网站代码由 AI 辅助（Claude / ChatGPT）生成；Agent 运行使用 ChatGPT（开网页搜索）。</span>
-  <span>所有试验信息以 ClinicalTrials.gov 原始页面为准。</span>
+  <span>Emma Zhao · Duke University · Portfolio project (in progress)</span>
+  <span>Who did what: research design, therapeutic area and case selection, and fact-checking by Emma; instruction v0, watchlist candidates and site code drafted with AI assistance (Claude / ChatGPT); Agent runs use ChatGPT with web search.</span>
+  <span>ClinicalTrials.gov original records are the source of truth for all trial information.</span>
 </footer>
 
 <script>
 const STATUS = {
-  RECRUITING:["招募中","ok"], ACTIVE_NOT_RECRUITING:["进行中·停止招募","acc"], NOT_YET_RECRUITING:["尚未招募","todo"],
-  COMPLETED:["已完成","todo"], TERMINATED:["已终止","hi"], SUSPENDED:["暂停","hi"], WITHDRAWN:["已撤回","hi"],
-  ENROLLING_BY_INVITATION:["邀请入组","ok"]
+  RECRUITING:["Recruiting","ok"], ACTIVE_NOT_RECRUITING:["Active, not recruiting","acc"], NOT_YET_RECRUITING:["Not yet recruiting","todo"],
+  COMPLETED:["Completed","todo"], TERMINATED:["Terminated","hi"], SUSPENDED:["Suspended","hi"], WITHDRAWN:["Withdrawn","hi"],
+  ENROLLING_BY_INVITATION:["Enrolling by invitation","ok"]
 };
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const phase = p => p ? p.replace(/EARLY_PHASE1/g, "早期 1 期").replace(/PHASE(\d)/g, "$1 期").replace(/\//g, " / ") : "—";
+const phase = p => p ? p.replace(/EARLY_PHASE1/g, "Early Phase 1").replace(/PHASE(\d)/g, "Phase $1").replace(/\//g, " / ") : "—";
 const statusPill = s => { const v = STATUS[s] || [s || "—", "todo"]; return `<span class="pill ${v[1]}">${esc(v[0])}</span>`; };
 const linkList = links => (links || []).map(([t,u]) => `<a class="src" href="${esc(u)}" target="_blank" rel="noopener">[${esc(t)}]</a>`).join(" ");
+const fmtLocal = d => d.toLocaleDateString("en-US", {month:"short", day:"numeric", year:"numeric"});
 
 function renderRun(r){
   const li = arr => arr.map(x => `<li>${esc(x.text)} ${linkList(x.links)}</li>`).join("");
   return `
   <div class="four">
-    <div class="q"><h4>1 · 发生了什么</h4><ul>${li(r.what_happened)}</ul></div>
-    <div class="q"><h4>2 · 来源怎么说</h4><ul>${li(r.sources_say)}</ul>
+    <div class="q"><h4>1 · What happened</h4><ul>${li(r.what_happened)}</ul></div>
+    <div class="q"><h4>2 · What sources say</h4><ul>${li(r.sources_say)}</ul>
       ${r.evidence_insufficient ? `<div class="ins">Evidence insufficient: no public source found that explains this change.</div>` : ""}</div>
-    <div class="q"><h4>3 · 还不清楚什么</h4><ul>${r.unclear.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
-    <div class="q"><h4>4 · 分析判断</h4><ul>${r.analyst_view.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+    <div class="q"><h4>3 · What is still unclear</h4><ul>${r.unclear.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+    <div class="q"><h4>4 · Analyst view</h4><ul>${r.analyst_view.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
   </div>
-  <details><summary>来源表（${r.sources.length}）与搜索记录（${r.searches.length}）</summary><div class="dbody">
-    <table><thead><tr><th>#</th><th>来源</th><th>发布方</th><th>日期</th><th>支撑哪句话</th></tr></thead><tbody>
+  <details><summary>Sources (${r.sources.length}) and search log (${r.searches.length})</summary><div class="dbody">
+    <table><thead><tr><th>#</th><th>Source</th><th>Publisher</th><th>Date</th><th>Supports</th></tr></thead><tbody>
     ${r.sources.map((s,i) => `<tr><td>${i+1}</td><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></td><td>${esc(s.publisher)}</td><td>${esc(s.date)}</td><td>${esc(s.supports)}</td></tr>`).join("")}
     </tbody></table>
-    <p style="margin-top:8px"><b>搜索词：</b>${r.searches.map(esc).join(" · ")}</p>
+    <p style="margin-top:8px"><b>Searches:</b> ${r.searches.map(esc).join(" · ")}</p>
   </div></details>`;
 }
 
 function renderCard(c){
-  const delta = `<dl class="delta"><dt>字段</dt><dd>${esc(c.field)}</dd><dt>旧值</dt><dd class="old">${esc(c.old)}</dd><dt>新值</dt><dd>${esc(c.new)}</dd><dt>变更日期</dt><dd>${esc(c.change_date)} · <a href="${esc(c.history_url)}" target="_blank" rel="noopener">查看登记变更对比</a></dd></dl>`;
-  const head = (sev, pills) => `<div class="card-head"><div class="card-title"><span class="t">#${c.no} · ${esc(c.sponsor)} · ${esc(c.drug)}</span><span class="m">${esc(c.nct)}</span></div><div class="pills">${pills}</div></div>`;
+  const delta = `<dl class="delta"><dt>Field</dt><dd>${esc(c.field)}</dd><dt>Old</dt><dd class="old">${esc(c.old)}</dd><dt>New</dt><dd>${esc(c.new)}</dd><dt>Changed</dt><dd>${esc(c.change_date)} · <a href="${esc(c.history_url)}" target="_blank" rel="noopener">View record history diff</a></dd></dl>`;
+  const head = pills => `<div class="card-head"><div class="card-title"><span class="t">#${c.no} · ${esc(c.sponsor)} · ${esc(c.drug)}</span><span class="m">${esc(c.nct)}</span></div><div class="pills">${pills}</div></div>`;
   if (!c.runs || !c.runs.length){
-    return `<article class="card">${head("", `<span class="pill todo">人工基准撰写中</span>`)}${delta}<p class="sub">${esc(c.status_note)}</p></article>`;
+    return `<article class="card">${head(`<span class="pill todo">Human baseline in progress</span>`)}${delta}<p class="sub">${esc(c.status_note)}</p></article>`;
   }
   const r = c.runs[0];
   const sevCls = {High:"hi", Medium:"warn", Low:"ok"}[r.importance] || "todo";
-  const ver = c.verification === "verified" ? `<span class="pill ok">✓ 已人工核对</span>` : `<span class="pill warn">⚠ 未人工核对</span>`;
-  const pills = `<span class="pill ${sevCls}">重要性：${esc(r.importance)}</span>${ver}<span class="pill todo">${esc(r.run_at)} · 指令 ${esc(r.instruction)}</span>`;
-  const more = c.runs.slice(1).map(x => `<details><summary>${esc(x.label)} · ${esc(x.run_at)} · ${esc(x.model)}</summary><div class="dbody"><p><b>重要性：</b>${esc(x.importance)} · ${esc(x.importance_note)}</p>${renderRun(x)}</div></details>`).join("");
-  return `<article class="card sev-${esc(r.importance)}">${head(r.importance, pills)}${delta}<p style="font-size:14px"><b>为什么值得看：</b>${esc(r.importance_note)}</p>${renderRun(r)}${more}<p class="sub" style="margin:0">模型：${esc(r.model)}</p></article>`;
+  const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
+  const pills = `<span class="pill ${sevCls}">Importance: ${esc(r.importance)}</span>${ver}<span class="pill todo">${esc(r.run_at)} · instruction ${esc(r.instruction)}</span>`;
+  const more = c.runs.slice(1).map(x => `<details><summary>${esc(x.label)} · ${esc(x.run_at)} · ${esc(x.model)}</summary><div class="dbody"><p><b>Importance:</b> ${esc(x.importance)} · ${esc(x.importance_note)}</p>${renderRun(x)}</div></details>`).join("");
+  return `<article class="card sev-${esc(r.importance)}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
 }
-
-function fmtDate(iso){ if(!iso) return null; const d = new Date(iso); return isNaN(d) ? iso : d.toISOString().slice(0,10); }
 
 function renderWatchlist(w){
   const fetched = w.fetched_at ? new Date(w.fetched_at) : null;
-  document.getElementById("sUpdated").textContent = fetched ? fmtDate(w.fetched_at) : "10-20";
+  document.getElementById("sUpdated").textContent = fetched ? fmtLocal(fetched) : "Oct 20";
   document.getElementById("sTrials").textContent = w.trials.length;
-  document.getElementById("wlNote").textContent = fetched ? `每天自动更新 · 最近一次：${fetched.toLocaleString("zh-CN",{hour12:false})}` : (w.source_note || "");
+  document.getElementById("wlNote").textContent = fetched ? `Refreshed automatically every day · last run: ${fetched.toLocaleString("en-US",{dateStyle:"medium",timeStyle:"short"})}` : (w.source_note || "");
   document.getElementById("wlBody").innerHTML = w.trials.map(t => {
     let recent = "";
     if (fetched && t.last_update_posted){
       const days = (fetched - new Date(t.last_update_posted)) / 86400000;
-      if (days <= 30) recent = ` <span class="pill hi">近 30 天有更新</span>`;
+      if (days <= 30) recent = ` <span class="pill hi">Updated in last 30 days</span>`;
     }
-    const enr = t.enrollment != null ? `${t.enrollment}${t.enrollment_type === "ESTIMATED" ? "（预计）" : t.enrollment_type === "ACTUAL" ? "（实际）" : ""}` : "—";
-    const pc = t.primary_completion ? `${t.primary_completion}${t.primary_completion_type === "ESTIMATED" ? "（预计）" : ""}` : "—";
-    return `<tr><td class="mono"><a href="https://clinicaltrials.gov/study/${esc(t.nct)}" target="_blank" rel="noopener">${esc(t.nct)}</a></td><td>${esc(t.company)}</td><td>${esc(t.label)}${t.acronym ? ` <span class="sub">${esc(t.acronym)}</span>` : ""}${t.error ? `<div class="err">本次拉取失败</div>` : ""}</td><td>${esc(phase(t.phase))}</td><td>${statusPill(t.overall_status)}</td><td class="mono">${esc(enr)}</td><td class="mono">${esc(pc)}</td><td class="mono">${esc(t.last_update_posted || "—")}${recent}</td></tr>`;
+    const enr = t.enrollment != null ? `${t.enrollment}${t.enrollment_type === "ESTIMATED" ? " (est.)" : t.enrollment_type === "ACTUAL" ? " (actual)" : ""}` : "—";
+    const pc = t.primary_completion ? `${t.primary_completion}${t.primary_completion_type === "ESTIMATED" ? " (est.)" : ""}` : "—";
+    return `<tr><td class="mono"><a href="https://clinicaltrials.gov/study/${esc(t.nct)}" target="_blank" rel="noopener">${esc(t.nct)}</a></td><td>${esc(t.company)}</td><td>${esc(t.label)}${t.acronym ? ` <span class="sub">${esc(t.acronym)}</span>` : ""}${t.error ? `<div class="err">Last refresh failed for this trial</div>` : ""}</td><td>${esc(phase(t.phase))}</td><td>${statusPill(t.overall_status)}</td><td class="mono">${esc(enr)}</td><td class="mono">${esc(pc)}</td><td class="mono">${esc(t.last_update_posted || "—")}${recent}</td></tr>`;
   }).join("");
 }
 
@@ -314,33 +313,33 @@ async function loadJSON(path){ const r = await fetch(path, {cache:"no-store"}); 
 
 loadJSON("briefs.json").then(b => {
   document.getElementById("cards").innerHTML = b.changes.map(renderCard).join("");
-}).catch(() => { document.getElementById("cards").innerHTML = `<p class="err">简报数据没有加载出来，请刷新页面。</p>`; });
+}).catch(() => { document.getElementById("cards").innerHTML = `<p class="err">Briefs did not load. Please refresh the page.</p>`; });
 
 loadJSON("watchlist.json").then(renderWatchlist).catch(() => {
-  document.getElementById("wlNote").innerHTML = `<span class="err">关注名单数据没有加载出来，请刷新页面。</span>`;
+  document.getElementById("wlNote").innerHTML = `<span class="err">Watchlist did not load. Please refresh the page.</span>`;
 });
 
 document.getElementById("lookupForm").addEventListener("submit", async e => {
   e.preventDefault();
   const out = document.getElementById("lookupOut");
   const nct = document.getElementById("nctInput").value.trim().toUpperCase();
-  if (!/^NCT\d{8}$/.test(nct)){ out.innerHTML = `<span class="err">格式应为 NCT 加 8 位数字，例如 NCT07533175。</span>`; return; }
-  out.textContent = "查询中…";
+  if (!/^NCT\d{8}$/.test(nct)){ out.innerHTML = `<span class="err">Use the format NCT plus 8 digits, e.g. NCT07533175.</span>`; return; }
+  out.textContent = "Looking up…";
   const page = `https://clinicaltrials.gov/study/${nct}`;
   try{
     const d = await loadJSON(`https://clinicaltrials.gov/api/v2/studies/${nct}`);
     const p = d.protocolSection || {}, s = p.statusModule || {}, id = p.identificationModule || {}, de = p.designModule || {};
     out.innerHTML = `<div class="tbl"><table><tbody>
-      <tr><th>标题</th><td>${esc(id.briefTitle)}</td></tr>
-      <tr><th>申办方</th><td>${esc(p.sponsorCollaboratorsModule?.leadSponsor?.name)}</td></tr>
-      <tr><th>状态</th><td>${statusPill(s.overallStatus)}</td></tr>
-      <tr><th>阶段</th><td>${esc(phase((de.phases||[]).join("/")))}</td></tr>
-      <tr><th>入组人数</th><td class="mono">${esc(de.enrollmentInfo?.count ?? "—")}</td></tr>
-      <tr><th>主要完成日期</th><td class="mono">${esc(s.primaryCompletionDateStruct?.date ?? "—")}</td></tr>
-      <tr><th>登记最近更新</th><td class="mono">${esc(s.lastUpdatePostDateStruct?.date ?? "—")}</td></tr>
-    </tbody></table></div><p class="sub" style="margin-top:6px">来源：<a href="${page}" target="_blank" rel="noopener">ClinicalTrials.gov 原页面</a></p>`;
+      <tr><th>Title</th><td>${esc(id.briefTitle)}</td></tr>
+      <tr><th>Sponsor</th><td>${esc(p.sponsorCollaboratorsModule?.leadSponsor?.name)}</td></tr>
+      <tr><th>Status</th><td>${statusPill(s.overallStatus)}</td></tr>
+      <tr><th>Phase</th><td>${esc(phase((de.phases||[]).join("/")))}</td></tr>
+      <tr><th>Enrollment</th><td class="mono">${esc(de.enrollmentInfo?.count ?? "—")}</td></tr>
+      <tr><th>Primary completion</th><td class="mono">${esc(s.primaryCompletionDateStruct?.date ?? "—")}</td></tr>
+      <tr><th>Record last updated</th><td class="mono">${esc(s.lastUpdatePostDateStruct?.date ?? "—")}</td></tr>
+    </tbody></table></div><p class="sub" style="margin-top:6px">Source: <a href="${page}" target="_blank" rel="noopener">ClinicalTrials.gov record</a></p>`;
   }catch(err){
-    out.innerHTML = `<span class="err">这次没查到（可能编号不存在，或浏览器拦截了跨站请求）。</span> 可以直接打开 <a href="${page}" target="_blank" rel="noopener">ClinicalTrials.gov 原页面</a>。`;
+    out.innerHTML = `<span class="err">No result this time (the ID may not exist, or the browser blocked the request).</span> You can open the <a href="${page}" target="_blank" rel="noopener">ClinicalTrials.gov record</a> directly.`;
   }
 });
 </script>
