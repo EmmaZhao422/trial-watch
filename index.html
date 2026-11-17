@@ -130,6 +130,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 <div class="top"><div class="top-in">
   <div class="brand"><b>Trial Watch</b><span>Competitor Clinical Trial Intelligence Agent</span><span class="tag">ALPHA</span></div>
   <nav aria-label="Page sections">
+    <a href="#changes">Changes</a>
     <a href="#briefs">Briefs</a>
     <a href="#watchlist">Watchlist</a>
     <a href="#how">How it works</a>
@@ -147,10 +148,22 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
   </div>
   <div class="stats" id="stats">
     <div class="stat"><div class="v" id="sTrials">8</div><div class="k">Trials on the watchlist</div></div>
-    <div class="stat"><div class="v">3</div><div class="k">Real registry changes (development cases)</div></div>
+    <div class="stat"><div class="v" id="sChanges">—</div><div class="k">Registry changes detected</div></div>
     <div class="stat"><div class="v">3</div><div class="k">Agent runs so far</div></div>
     <div class="stat"><div class="v" id="sUpdated">—</div><div class="k">Data last refreshed</div></div>
   </div>
+</section>
+
+<section id="changes">
+  <div class="sec-head">
+    <h2>Detected changes</h2>
+    <span class="sub" id="chNote">Loading…</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Date</th><th>Trial</th><th>Field</th><th>Old → New</th><th>Registry</th><th>Brief</th></tr></thead>
+    <tbody id="chBody"></tbody>
+  </table></div>
+  <p class="sub" style="margin-top:8px">Found automatically: a SQL query compares each registered version of a trial with the version before it. Dates are the day the sponsor submitted the update.</p>
 </section>
 
 <section id="briefs">
@@ -187,7 +200,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
   <div class="flow">
     <div class="step"><span class="n">01</span><b>Watchlist</b><span>Pick a therapeutic area and the competitors' key trials</span><span class="pill todo">Manual</span></div>
     <div class="step"><span class="n">02</span><b>Daily refresh</b><span>GitHub Actions pulls every trial from the ClinicalTrials.gov API each day and saves a snapshot</span><span class="pill ok">Automated</span></div>
-    <div class="step"><span class="n">03</span><b>Detect changes</b><span>Compare old and new versions to find meaningful field changes. In the alpha this is done by hand from the record history; next, SQL over the daily snapshots</span><span class="pill todo">Manual → SQL</span></div>
+    <div class="step"><span class="n">03</span><b>Detect changes</b><span>A SQL query compares each registered version of a trial with the one before it and lists every tracked field that changed</span><span class="pill ok">Automated</span></div>
     <div class="step"><span class="n">04</span><b>Investigate</b><span>The Agent chooses what to search and which sources to open, and only uses sources that mention the trial or drug</span><span class="pill acc">Agent</span></div>
     <div class="step"><span class="n">05</span><b>Write the brief</b><span>Four parts + source table + search log; inferences labeled; "Evidence insufficient" when nothing explains the change</span><span class="pill acc">Agent</span></div>
     <div class="step"><span class="n">06</span><b>Human review</b><span>Every claim is marked correct / wrong / no source found, and the findings feed back into the instruction</span><span class="pill todo">Manual</span></div>
@@ -244,7 +257,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 
 <footer>
   <span>Emma Zhao · Duke University · Portfolio project (in progress)</span>
-  <span>Who did what: research design, therapeutic area and case selection, and fact-checking by Emma; instruction v0, watchlist candidates and site code drafted with AI assistance (Claude / ChatGPT); Agent runs use ChatGPT with web search.</span>
+  <span>Who did what: research design, therapeutic area and case selection, and fact-checking by Emma; instruction v0, watchlist candidates, change-detection SQL and site code drafted with AI assistance (Claude / ChatGPT); Agent runs use ChatGPT with web search.</span>
   <span>ClinicalTrials.gov original records are the source of truth for all trial information.</span>
 </footer>
 
@@ -282,14 +295,14 @@ function renderCard(c){
   const delta = `<dl class="delta"><dt>Field</dt><dd>${esc(c.field)}</dd><dt>Old</dt><dd class="old">${esc(c.old)}</dd><dt>New</dt><dd>${esc(c.new)}</dd><dt>Changed</dt><dd>${esc(c.change_date)} · <a href="${esc(c.history_url)}" target="_blank" rel="noopener">View record history diff</a></dd></dl>`;
   const head = pills => `<div class="card-head"><div class="card-title"><span class="t">#${c.no} · ${esc(c.sponsor)} · ${esc(c.drug)}</span><span class="m">${esc(c.nct)}</span></div><div class="pills">${pills}</div></div>`;
   if (!c.runs || !c.runs.length){
-    return `<article class="card">${head(`<span class="pill todo">Human baseline in progress</span>`)}${delta}<p class="sub">${esc(c.status_note)}</p></article>`;
+    return `<article class="card" id="brief-${c.no}">${head(`<span class="pill todo">Human baseline in progress</span>`)}${delta}<p class="sub">${esc(c.status_note)}</p></article>`;
   }
   const r = c.runs[0];
   const sevCls = {High:"hi", Medium:"warn", Low:"ok"}[r.importance] || "todo";
   const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
   const pills = `<span class="pill ${sevCls}">Importance: ${esc(r.importance)}</span>${ver}<span class="pill todo">${esc(r.run_at)} · instruction ${esc(r.instruction)}</span>`;
   const more = c.runs.slice(1).map(x => `<details><summary>${esc(x.label)} · ${esc(x.run_at)} · ${esc(x.model)}</summary><div class="dbody"><p><b>Importance:</b> ${esc(x.importance)} · ${esc(x.importance_note)}</p>${renderRun(x)}</div></details>`).join("");
-  return `<article class="card sev-${esc(r.importance)}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
+  return `<article class="card sev-${esc(r.importance)}" id="brief-${c.no}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
 }
 
 function renderWatchlist(w){
@@ -311,9 +324,31 @@ function renderWatchlist(w){
 
 async function loadJSON(path){ const r = await fetch(path, {cache:"no-store"}); if(!r.ok) throw new Error(r.status); return r.json(); }
 
-loadJSON("briefs.json").then(b => {
+const FIELD = {overall_status:"Overall status", enrollment:"Enrollment", enrollment_type:"Enrollment type", primary_completion_date:"Primary completion date", primary_completion_type:"Primary completion date type", study_completion_date:"Study completion date", study_completion_type:"Study completion date type"};
+const TYPE = {ESTIMATED:"Estimated", ACTUAL:"Actual"};
+const showValue = (field, v) => v == null ? "—" : field === "overall_status" ? (STATUS[v] || [v])[0] : field.endsWith("_type") ? (TYPE[v] || v) : v;
+
+function renderChanges(d, briefs){
+  const briefFor = {};
+  (briefs?.changes || []).forEach(c => { const m = /[?&]b=(\d+)/.exec(c.history_url || ""); if (m) briefFor[c.nct + "|" + m[1]] = c; });
+  const rows = d.changes || [];
+  document.getElementById("sChanges").textContent = rows.length;
+  document.getElementById("chNote").textContent = `${rows.length} changes across ${d.versions_compared} registered versions · newest first`;
+  document.getElementById("chBody").innerHTML = rows.map(r => {
+    const b = briefFor[r.nct + "|" + r.version];
+    const brief = !b ? `<span class="sub">No brief yet</span>` : `<a href="#brief-${b.no}">Brief #${b.no}</a>`;
+    return `<tr><td class="mono">${esc(r.version_date)}</td><td>${esc(r.company)} · ${esc(r.label)}<br><span class="mono sub">${esc(r.nct)} · version ${esc(r.version)}</span></td><td>${esc(FIELD[r.field] || r.field)}</td><td class="mono" style="white-space:normal"><span class="sub" style="text-decoration:line-through">${esc(showValue(r.field, r.old_value))}</span> → ${esc(showValue(r.field, r.new_value))}</td><td><a class="src" href="${esc(r.compare_url)}" target="_blank" rel="noopener">Compare versions</a></td><td style="white-space:nowrap">${brief}</td></tr>`;
+  }).join("");
+}
+
+const briefsReady = loadJSON("briefs.json");
+briefsReady.then(b => {
   document.getElementById("cards").innerHTML = b.changes.map(renderCard).join("");
 }).catch(() => { document.getElementById("cards").innerHTML = `<p class="err">Briefs did not load. Please refresh the page.</p>`; });
+
+Promise.all([loadJSON("changes.json"), briefsReady.catch(() => null)]).then(([d, b]) => renderChanges(d, b)).catch(() => {
+  document.getElementById("chNote").innerHTML = `<span class="err">Changes did not load. Please refresh the page.</span>`;
+});
 
 loadJSON("watchlist.json").then(renderWatchlist).catch(() => {
   document.getElementById("wlNote").innerHTML = `<span class="err">Watchlist did not load. Please refresh the page.</span>`;
