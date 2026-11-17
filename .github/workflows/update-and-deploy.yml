@@ -33,11 +33,21 @@ jobs:
         run: python update_watchlist.py
         continue-on-error: true
 
+      - name: Fetch every registered version of each trial (Record History)
+        run: python fetch_history.py
+        continue-on-error: true
+
+      - name: Run the change-detection SQL (skips itself until the query is written)
+        run: python run_change_detection.py
+        continue-on-error: true
+
       - name: Save the new data back to the repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898583+github-actions[bot]@users.noreply.github.com"
           git add watchlist.json snapshots
+          if [ -d history ]; then git add history; fi
+          if [ -f changes.json ]; then git add changes.json; fi
           git diff --cached --quiet || (git commit -m "Update watchlist snapshot" && git push)
 
       - uses: actions/configure-pages@v5
