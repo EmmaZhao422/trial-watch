@@ -1,0 +1,192 @@
+{
+  "versions_compared": 100,
+  "changes": [
+    {
+      "nct": "NCT07533175",
+      "company": "Novo Nordisk",
+      "label": "NNC0487-0111 (AMAZE 2)",
+      "version": 9,
+      "version_date": "2026-11-05",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=8&b=9#version-content-panel",
+      "field": "enrollment",
+      "old_value": "630",
+      "new_value": "638"
+    },
+    {
+      "nct": "NCT07533175",
+      "company": "Novo Nordisk",
+      "label": "NNC0487-0111 (AMAZE 2)",
+      "version": 9,
+      "version_date": "2026-11-05",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=8&b=9#version-content-panel",
+      "field": "overall_status",
+      "old_value": "RECRUITING",
+      "new_value": "ACTIVE_NOT_RECRUITING"
+    },
+    {
+      "nct": "NCT07037433",
+      "company": "Amgen",
+      "label": "MariTide (maridebart cafraglutide) cardiovascular outcomes trial",
+      "version": 32,
+      "version_date": "2026-10-27",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07037433?tab=history&a=31&b=32#version-content-panel",
+      "field": "overall_status",
+      "old_value": "RECRUITING",
+      "new_value": "ACTIVE_NOT_RECRUITING"
+    },
+    {
+      "nct": "NCT07215559",
+      "company": "Eli Lilly",
+      "label": "Macupatide + eloralintide (alone or combined)",
+      "version": 18,
+      "version_date": "2026-10-08",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07215559?tab=history&a=17&b=18#version-content-panel",
+      "field": "overall_status",
+      "old_value": "RECRUITING",
+      "new_value": "ACTIVE_NOT_RECRUITING"
+    },
+    {
+      "nct": "NCT07153471",
+      "company": "Eli Lilly",
+      "label": "Orforglipron (obesity/overweight with knee osteoarthritis)",
+      "version": 25,
+      "version_date": "2026-10-01",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07153471?tab=history&a=24&b=25#version-content-panel",
+      "field": "overall_status",
+      "old_value": "RECRUITING",
+      "new_value": "ACTIVE_NOT_RECRUITING"
+    },
+    {
+      "nct": "NCT07667803",
+      "company": "AstraZeneca",
+      "label": "Elecoglipron (master protocol)",
+      "version": 2,
+      "version_date": "2026-07-09",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07667803?tab=history&a=1&b=2#version-content-panel",
+      "field": "overall_status",
+      "old_value": "NOT_YET_RECRUITING",
+      "new_value": "RECRUITING"
+    },
+    {
+      "nct": "NCT07533175",
+      "company": "Novo Nordisk",
+      "label": "NNC0487-0111 (AMAZE 2)",
+      "version": 3,
+      "version_date": "2026-05-18",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel",
+      "field": "primary_completion_date",
+      "old_value": "2028-05-15",
+      "new_value": "2028-08-07"
+    },
+    {
+      "nct": "NCT07533175",
+      "company": "Novo Nordisk",
+      "label": "NNC0487-0111 (AMAZE 2)",
+      "version": 2,
+      "version_date": "2026-04-22",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=1&b=2#version-content-panel",
+      "field": "overall_status",
+      "old_value": "NOT_YET_RECRUITING",
+      "new_value": "RECRUITING"
+    },
+    {
+      "nct": "NCT07011667",
+      "company": "Novo Nordisk",
+      "label": "CagriSema (cagrilintide + semaglutide)",
+      "version": 4,
+      "version_date": "2025-12-05",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel",
+      "field": "enrollment",
+      "old_value": "600",
+      "new_value": "609"
+    },
+    {
+      "nct": "NCT07011667",
+      "company": "Novo Nordisk",
+      "label": "CagriSema (cagrilintide + semaglutide)",
+      "version": 4,
+      "version_date": "2025-12-05",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel",
+      "field": "enrollment_type",
+      "old_value": "ESTIMATED",
+      "new_value": "ACTUAL"
+    },
+    {
+      "nct": "NCT07011667",
+      "company": "Novo Nordisk",
+      "label": "CagriSema (cagrilintide + semaglutide)",
+      "version": 4,
+      "version_date": "2025-12-05",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel",
+      "field": "primary_completion_date",
+      "old_value": "2026-12-15",
+      "new_value": "2027-03-01"
+    },
+    {
+      "nct": "NCT07011667",
+      "company": "Novo Nordisk",
+      "label": "CagriSema (cagrilintide + semaglutide)",
+      "version": 4,
+      "version_date": "2025-12-05",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel",
+      "field": "study_completion_date",
+      "old_value": "2028-11-01",
+      "new_value": "2028-10-17"
+    },
+    {
+      "nct": "NCT07215559",
+      "company": "Eli Lilly",
+      "label": "Macupatide + eloralintide (alone or combined)",
+      "version": 4,
+      "version_date": "2025-11-03",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07215559?tab=history&a=3&b=4#version-content-panel",
+      "field": "overall_status",
+      "old_value": "NOT_YET_RECRUITING",
+      "new_value": "RECRUITING"
+    },
+    {
+      "nct": "NCT07153471",
+      "company": "Eli Lilly",
+      "label": "Orforglipron (obesity/overweight with knee osteoarthritis)",
+      "version": 4,
+      "version_date": "2025-10-15",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07153471?tab=history&a=3&b=4#version-content-panel",
+      "field": "overall_status",
+      "old_value": "NOT_YET_RECRUITING",
+      "new_value": "RECRUITING"
+    },
+    {
+      "nct": "NCT07011667",
+      "company": "Novo Nordisk",
+      "label": "CagriSema (cagrilintide + semaglutide)",
+      "version": 3,
+      "version_date": "2025-08-28",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=2&b=3#version-content-panel",
+      "field": "overall_status",
+      "old_value": "RECRUITING",
+      "new_value": "ACTIVE_NOT_RECRUITING"
+    },
+    {
+      "nct": "NCT07037433",
+      "company": "Amgen",
+      "label": "MariTide (maridebart cafraglutide) cardiovascular outcomes trial",
+      "version": 2,
+      "version_date": "2025-07-18",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07037433?tab=history&a=1&b=2#version-content-panel",
+      "field": "overall_status",
+      "old_value": "NOT_YET_RECRUITING",
+      "new_value": "RECRUITING"
+    },
+    {
+      "nct": "NCT07011667",
+      "company": "Novo Nordisk",
+      "label": "CagriSema (cagrilintide + semaglutide)",
+      "version": 2,
+      "version_date": "2025-06-10",
+      "compare_url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=1&b=2#version-content-panel",
+      "field": "overall_status",
+      "old_value": "NOT_YET_RECRUITING",
+      "new_value": "RECRUITING"
+    }
+  ]
+}
