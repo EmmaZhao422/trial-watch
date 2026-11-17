@@ -1,0 +1,14 @@
+-- Change detection for Trial Watch.
+-- Author: Emma Zhao. (This file is intentionally empty until Emma writes the query.)
+--
+-- Input table: versions  (one row = one trial at one registered version)
+--   nct, company, label, version, version_date, overall_status,
+--   enrollment, enrollment_type, primary_completion_date, primary_completion_type,
+--   study_completion_date, study_completion_type, start_date,
+--   n_locations, n_primary_outcomes, n_secondary_outcomes, modules_changed, compare_url
+--
+-- Goal: return one row for every time a tracked field differs from the previous
+-- version of the same trial, e.g.
+--   nct | version | version_date | field | old_value | new_value | compare_url
+--
+-- Run it: python run_change_detection.py   (writes changes.json)
