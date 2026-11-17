@@ -19,6 +19,10 @@ A portfolio project by Emma Zhao (Duke University). Pharma competitive-intellige
 | `watchlist_config.json` | Which trials to track. Add or remove trials here only |
 | `watchlist.json` | Latest trial data shown on the site (written by the daily job) |
 | `snapshots/` | One snapshot per day; input for SQL-based change detection later |
+| `history/versions.csv` | Every registered version of every watchlist trial (one row per trial per version), rebuilt daily from ClinicalTrials.gov Record History |
+| `fetch_history.py` | Builds `history/versions.csv` |
+| `sql/detect_changes.sql` | Change-detection query over the `versions` table (written by Emma; in progress) |
+| `run_change_detection.py` | Loads the CSV into SQLite, runs the query, writes `changes.json` |
 | `update_watchlist.py` | Pulls data from the ClinicalTrials.gov API (Python standard library only) |
 | `.github/workflows/update-and-deploy.yml` | Daily data refresh + site deploy; also deploys on every push |
 
