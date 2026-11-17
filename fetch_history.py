@@ -1,13 +1,18 @@
-"""Build one table of every registered version of every trial on the watchlist.
+"""Keep one table of every registered version of every trial on the watchlist.
 
-ClinicalTrials.gov keeps each past version of a trial record ("Record History").
-This script saves the key fields of every version to history/versions.csv:
-one row = one trial at one version. Comparing a row with the row before it
-shows what changed; that comparison is done in SQL (sql/detect_changes.sql),
-not here.
+history/versions.csv: one row = one trial at one version. Comparing a row with
+the row before it shows what changed; that comparison is done in SQL
+(sql/detect_changes.sql), not here.
 
-Versions never change once posted, so rows already in the CSV are kept and
-only new versions are downloaded.
+Where the rows come from:
+- Past versions were loaded once, on 2026-11-16, from the Record History pages
+  of ClinicalTrials.gov (that data is not offered by the public API).
+- From then on this script asks the public API (v2) for each trial's current
+  record every day. If its "last update submitted" date is newer than the
+  newest row in the table, the current record is added as the next version.
+
+Known limits: two versions submitted between two daily runs are saved as one;
+a trial added to the watchlist later starts with no past versions.
 
 Only uses the Python standard library. Run: python fetch_history.py
 """
@@ -15,13 +20,11 @@ Only uses the Python standard library. Run: python fetch_history.py
 import csv
 import json
 import pathlib
-import time
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "history" / "versions.csv"
-LIST_API = "https://clinicaltrials.gov/api/int/studies/{nct}/history"
-VERSION_API = "https://clinicaltrials.gov/api/int/studies/{nct}/history/{version}"
+API = "https://clinicaltrials.gov/api/v2/studies/{nct}"
 COMPARE_URL = "https://clinicaltrials.gov/study/{nct}?tab=history&a={a}&b={b}#version-content-panel"
 
 COLUMNS = [
@@ -55,17 +58,15 @@ def fetch_json(url):
         return json.load(resp)
 
 
-def to_row(item, change, record):
-    p = get(record, "study", "protocolSection") or {}
+def to_row(item, version, record):
+    p = record.get("protocolSection") or {}
     s = p.get("statusModule") or {}
-    api_version = change["version"]          # the API counts from 0
-    web_version = api_version + 1            # the website counts from 1
     return {
         "nct": item["nct"],
         "company": item["company"],
         "label": item["label"],
-        "version": web_version,
-        "version_date": change.get("date"),
+        "version": version,
+        "version_date": s.get("lastUpdateSubmitDate"),
         "overall_status": s.get("overallStatus"),
         "enrollment": get(p, "designModule", "enrollmentInfo", "count"),
         "enrollment_type": get(p, "designModule", "enrollmentInfo", "type"),
@@ -77,9 +78,9 @@ def to_row(item, change, record):
         "n_locations": len(get(p, "contactsLocationsModule", "locations") or []),
         "n_primary_outcomes": len(get(p, "outcomesModule", "primaryOutcomes") or []),
         "n_secondary_outcomes": len(get(p, "outcomesModule", "secondaryOutcomes") or []),
-        "modules_changed": "; ".join(change.get("moduleLabels") or []),
-        "compare_url": COMPARE_URL.format(nct=item["nct"], a=web_version - 1, b=web_version)
-        if web_version > 1 else "",
+        "modules_changed": "",
+        "compare_url": COMPARE_URL.format(nct=item["nct"], a=version - 1, b=version)
+        if version > 1 else "",
     }
 
 
@@ -90,35 +91,33 @@ def load_existing():
         return {(r["nct"], int(r["version"])): r for r in csv.DictReader(f)}
 
 
-def main(fetch=fetch_json, pause=0.3):
+def main(fetch=fetch_json):
     config = json.loads((ROOT / "watchlist_config.json").read_text(encoding="utf-8"))
     rows = load_existing()
     new = 0
     for item in config["trials"]:
         nct = item["nct"]
+        known = [r for (n, _), r in rows.items() if n == nct]
+        latest = max(known, key=lambda r: int(r["version"])) if known else None
         try:
-            changes = fetch(LIST_API.format(nct=nct))["changes"]
+            record = fetch(API.format(nct=nct))
         except Exception as e:  # keep going if one trial fails
             print("error", nct, e)
             continue
-        for change in changes:
-            key = (nct, change["version"] + 1)
-            if key in rows:
-                continue
-            try:
-                record = fetch(VERSION_API.format(nct=nct, version=change["version"]))
-                rows[key] = to_row(item, change, record)
-                new += 1
-            except Exception as e:
-                print("error", nct, "version", key[1], e)
-            time.sleep(pause)
-        print("ok   ", nct, len(changes), "versions")
+        submitted = get(record, "protocolSection", "statusModule", "lastUpdateSubmitDate")
+        if latest and (not submitted or submitted <= latest["version_date"]):
+            print("same ", nct, "still version", latest["version"])
+            continue
+        version = int(latest["version"]) + 1 if latest else 1
+        rows[(nct, version)] = to_row(item, version, record)
+        new += 1
+        print("new  ", nct, "version", version, submitted)
 
     watched = {t["nct"] for t in config["trials"]}
     ordered = [rows[k] for k in sorted(rows) if k[0] in watched]
     OUT.parent.mkdir(exist_ok=True)
     with OUT.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=COLUMNS)
+        w = csv.DictWriter(f, fieldnames=COLUMNS, lineterminator="\n")
         w.writeheader()
         w.writerows(ordered)
     print(f"{len(ordered)} rows in {OUT.name} ({new} new)")
