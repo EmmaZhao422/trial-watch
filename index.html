@@ -172,7 +172,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 <section id="briefs">
   <div class="sec-head">
     <h2>Briefs</h2>
-    <span class="pill warn">⚠ Agent output · human review in progress</span>
+    <span class="pill warn">⚠ Agent output · human review in progress · newest change first</span>
   </div>
   <div class="cards" id="cards"><p class="sub">Loading briefs…</p></div>
 </section>
@@ -376,7 +376,7 @@ fetch("agent/instruction_v0.txt", {cache: "no-store"}).then(r => r.ok ? r.text()
 
 const briefsReady = loadJSON("briefs.json");
 briefsReady.then(b => {
-  document.getElementById("cards").innerHTML = b.changes.map(renderCard).join("");
+  document.getElementById("cards").innerHTML = [...b.changes].sort((x, y) => String(y.change_date).localeCompare(String(x.change_date))).map(renderCard).join("");
   document.getElementById("sRuns").textContent = b.changes.reduce((n, c) => n + (c.runs || []).length, 0);
 }).catch(() => { document.getElementById("cards").innerHTML = `<p class="err">Briefs did not load. Please refresh the page.</p>`; });
 
