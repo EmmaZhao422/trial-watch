@@ -706,7 +706,38 @@
             "Amgen third quarter 2026 results MariTide MARITIME phase 3 enrollment"
           ]
         }
-      ]
+      ],
+      "claim_check": {
+        "label": "AI self-check by Claude, 2026-11-19 (the same model wrote this brief, so this is a weak check)",
+        "summary": "4 of 5 claims match their sources; 1 is unsupported",
+        "items": [
+          {
+            "claim": "Version 32 changed status to Active, not recruiting; submitted October 27, posted October 29, 2026",
+            "result": "match",
+            "note": "Registry version data"
+          },
+          {
+            "claim": "Enrollment, completion dates and site count did not change; the study started July 25, 2025",
+            "result": "match",
+            "note": "Registry version data"
+          },
+          {
+            "claim": "Amgen's November 3, 2026 release says MARITIME-CV has completed enrollment",
+            "result": "match",
+            "note": "Amgen release, MariTide section"
+          },
+          {
+            "claim": "The release says the two sleep-apnea trials completed enrollment, MARITIME-HF is enrolling, MARITIME-1 and -2 are ongoing; it gives no count, date or results timing for MARITIME-CV",
+            "result": "match",
+            "note": "Amgen release, MariTide section"
+          },
+          {
+            "claim": "This is Amgen's largest MariTide trial (in \"Why it matters\")",
+            "result": "unchecked",
+            "note": "No source opened gives the size of every MariTide trial"
+          }
+        ]
+      }
     },
     {
       "no": 5,
