@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trial Watch · Competitor Clinical Trial Intelligence Agent</title>
 <meta name="description" content="Trial Watch (alpha): tracks competitors' clinical trial records daily; an AI Agent investigates changes and writes sourced briefs.">
+<link rel="alternate" type="application/atom+xml" title="Trial Watch: detected registry changes" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -165,7 +166,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
     <thead><tr><th>Date</th><th>Trial</th><th>Field</th><th>Old → New</th><th>Registry</th><th>Brief</th></tr></thead>
     <tbody id="chBody"></tbody>
   </table></div>
-  <p class="sub" style="margin-top:8px">Found automatically: a SQL query compares each registered version of a trial with the version before it. Dates are the day the sponsor submitted the update. For a change without a brief, "Copy Agent input" copies the Agent instruction plus this change, ready to paste into a chat model with web search.</p>
+  <p class="sub" style="margin-top:8px">Found automatically: a SQL query compares each registered version of a trial with the version before it. Dates are the day the sponsor submitted the update. For a change without a brief, "Copy Agent input" copies the Agent instruction plus this change, ready to paste into a chat model with web search. To be told about new changes, follow the <a href="feed.xml">change feed</a> in any feed reader.</p>
 </section>
 
 <section id="briefs">
@@ -241,6 +242,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
         <li><span class="pill acc">AI pre-check</span> Brief #2, run 1: 7 of 8 claims matched their sources; 1 source could not be opened. Brief #3: 4 of 6 matched, 2 could not be confirmed, and the Agent missed one date change in the same record version. Details are under each brief. This is not the human review.</li>
         <li><span class="pill todo">To do</span> Hand-write the brief for change #1 as a human baseline</li>
         <li><span class="pill todo">To do</span> Revise the instruction to v1 based on the issues found, re-run and compare</li>
+        <li><span class="pill acc">Rule</span> A brief that ends in "Evidence insufficient" is flagged for a re-check after 7 days: for change #4 the company's explanation appeared a week after the registry update.</li>
         <li><span class="pill todo">Later</span> Scale to 15–20 real changes, with separate development and test cases</li>
         <li><span class="pill todo">Later</span> Fair three-way comparison: registry-only summary / fixed search pipeline / Agent</li>
         <li><span class="pill todo">Later</span> Blind scoring of the three outputs by an industry reviewer</li>
@@ -314,7 +316,9 @@ function renderCard(c){
   const r = c.runs[0];
   const sevCls = {High:"hi", Medium:"warn", Low:"ok"}[r.importance] || "todo";
   const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
-  const pills = `<span class="pill ${sevCls}">Importance: ${esc(r.importance)}</span>${ver}<span class="pill todo">${esc(r.run_at)} · instruction ${esc(r.instruction)}</span>`;
+  const age = (Date.now() - new Date(String(r.run_at).slice(0, 10))) / 86400000;
+  const recheck = r.evidence_insufficient && age > 7 ? `<span class="pill acc">Re-check due · run ${Math.floor(age)} days ago</span>` : "";
+  const pills = `<span class="pill ${sevCls}">Importance: ${esc(r.importance)}</span>${ver}${recheck}<span class="pill todo">${esc(r.run_at)} · instruction ${esc(r.instruction)}</span>`;
   const more = c.runs.slice(1).map(x => `<details><summary>${esc(x.label)} · ${esc(x.run_at)} · ${esc(x.model)}</summary><div class="dbody"><p><b>Importance:</b> ${esc(x.importance)} · ${esc(x.importance_note)}</p>${renderRun(x)}</div></details>`).join("");
   return `<article class="card sev-${esc(r.importance)}" id="brief-${c.no}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${renderCheck(c.claim_check)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
 }
