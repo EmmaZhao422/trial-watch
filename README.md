@@ -24,6 +24,7 @@ A portfolio project by Emma Zhao (Duke University). Pharma competitive-intellige
 | `fetch_history.py` | Builds `history/versions.csv` |
 | `sql/detect_changes.sql` | Change-detection query over the `versions` table: lists every tracked field that differs from the previous version |
 | `run_change_detection.py` | Loads the CSV into SQLite, runs the query, writes `changes.json` (shown on the site as "Detected changes") |
+| `agent/instruction_v0.txt` | The Agent instruction (v0), kept under version control; the site pairs it with a detected change to build the Agent input |
 | `update_watchlist.py` | Pulls data from the ClinicalTrials.gov API (Python standard library only) |
 | `.github/workflows/update-and-deploy.yml` | Daily data refresh + site deploy; also deploys on every push |
 
