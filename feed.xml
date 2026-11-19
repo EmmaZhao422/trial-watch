@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Trial Watch: detected registry changes</title>
+  <id>https://emmazhao422.github.io/trial-watch/feed.xml</id>
+  <link href="https://emmazhao422.github.io/trial-watch/"/>
+  <link rel="self" href="https://emmazhao422.github.io/trial-watch/feed.xml"/>
+  <updated>2026-11-05T00:00:00Z</updated>
+  <author><name>Trial Watch</name></author>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07533175-v9-enrollment</id>
+    <title>Novo Nordisk · NNC0487-0111 (AMAZE 2): enrollment 630 -&gt; 638</title>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07533175?tab=history&amp;a=8&amp;b=9#version-content-panel"/>
+    <summary>NCT07533175, record version 9, submitted 2026-11-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07533175-v9-overall_status</id>
+    <title>Novo Nordisk · NNC0487-0111 (AMAZE 2): overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07533175?tab=history&amp;a=8&amp;b=9#version-content-panel"/>
+    <summary>NCT07533175, record version 9, submitted 2026-11-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07037433-v32-overall_status</id>
+    <title>Amgen · MariTide (maridebart cafraglutide) cardiovascular outcomes trial: overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07037433?tab=history&amp;a=31&amp;b=32#version-content-panel"/>
+    <summary>NCT07037433, record version 32, submitted 2026-10-27.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07215559-v18-overall_status</id>
+    <title>Eli Lilly · Macupatide + eloralintide (alone or combined): overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
+    <updated>2026-10-08T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07215559?tab=history&amp;a=17&amp;b=18#version-content-panel"/>
+    <summary>NCT07215559, record version 18, submitted 2026-10-08.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07153471-v25-overall_status</id>
+    <title>Eli Lilly · Orforglipron (obesity/overweight with knee osteoarthritis): overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
+    <updated>2026-10-01T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07153471?tab=history&amp;a=24&amp;b=25#version-content-panel"/>
+    <summary>NCT07153471, record version 25, submitted 2026-10-01.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07667803-v2-overall_status</id>
+    <title>AstraZeneca · Elecoglipron (master protocol): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07667803?tab=history&amp;a=1&amp;b=2#version-content-panel"/>
+    <summary>NCT07667803, record version 2, submitted 2026-07-09.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07533175-v3-primary_completion_date</id>
+    <title>Novo Nordisk · NNC0487-0111 (AMAZE 2): primary_completion_date 2028-05-15 -&gt; 2028-08-07</title>
+    <updated>2026-05-18T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07533175?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
+    <summary>NCT07533175, record version 3, submitted 2026-05-18.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07533175-v2-overall_status</id>
+    <title>Novo Nordisk · NNC0487-0111 (AMAZE 2): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
+    <updated>2026-04-22T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07533175?tab=history&amp;a=1&amp;b=2#version-content-panel"/>
+    <summary>NCT07533175, record version 2, submitted 2026-04-22.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-enrollment</id>
+    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): enrollment 600 -&gt; 609</title>
+    <updated>2025-12-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-enrollment_type</id>
+    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): enrollment_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2025-12-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-primary_completion_date</id>
+    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): primary_completion_date 2026-12-15 -&gt; 2027-03-01</title>
+    <updated>2025-12-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-study_completion_date</id>
+    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): study_completion_date 2028-11-01 -&gt; 2028-10-17</title>
+    <updated>2025-12-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07215559-v4-overall_status</id>
+    <title>Eli Lilly · Macupatide + eloralintide (alone or combined): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
+    <updated>2025-11-03T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07215559?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07215559, record version 4, submitted 2025-11-03.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07153471-v4-overall_status</id>
+    <title>Eli Lilly · Orforglipron (obesity/overweight with knee osteoarthritis): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
+    <updated>2025-10-15T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07153471?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07153471, record version 4, submitted 2025-10-15.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v3-overall_status</id>
+    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
+    <updated>2025-08-28T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
+    <summary>NCT07011667, record version 3, submitted 2025-08-28.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07037433-v2-overall_status</id>
+    <title>Amgen · MariTide (maridebart cafraglutide) cardiovascular outcomes trial: overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
+    <updated>2025-07-18T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07037433?tab=history&amp;a=1&amp;b=2#version-content-panel"/>
+    <summary>NCT07037433, record version 2, submitted 2025-07-18.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v2-overall_status</id>
+    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
+    <updated>2025-06-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=1&amp;b=2#version-content-panel"/>
+    <summary>NCT07011667, record version 2, submitted 2025-06-10.</summary>
+  </entry>
+</feed>
