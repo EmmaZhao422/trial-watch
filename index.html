@@ -238,7 +238,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
       <h3 style="margin-bottom:8px">Review status and next steps</h3>
       <ul>
         <li><span class="pill warn">In progress</span> Check every Agent claim (correct / wrong / no source)</li>
-        <li><span class="pill acc">AI pre-check</span> Brief #2, run 1: 7 of 8 claims matched their sources; 1 source could not be opened. This is not the human review.</li>
+        <li><span class="pill acc">AI pre-check</span> Brief #2, run 1: 7 of 8 claims matched their sources; 1 source could not be opened. Brief #3: 4 of 6 matched, 2 could not be confirmed, and the Agent missed one date change in the same record version. Details are under each brief. This is not the human review.</li>
         <li><span class="pill todo">To do</span> Hand-write the brief for change #1 as a human baseline</li>
         <li><span class="pill todo">To do</span> Revise the instruction to v1 based on the issues found, re-run and compare</li>
         <li><span class="pill todo">Later</span> Scale to 15–20 real changes, with separate development and test cases</li>
@@ -296,6 +296,15 @@ function renderRun(r){
   </div></details>`;
 }
 
+const CHECK = {match:["Matches source","ok"], unchecked:["Could not check","todo"], missed:["Missed by the Agent","warn"], wrong:["Wrong","hi"]};
+function renderCheck(k){
+  if (!k) return "";
+  return `<details><summary>Claim check · ${esc(k.summary)}</summary><div class="dbody"><p class="sub">${esc(k.label)}. This is not the human review.</p>
+    <table><thead><tr><th>Claim in the brief</th><th>Result</th><th>Checked against</th></tr></thead><tbody>
+    ${k.items.map(i => { const v = CHECK[i.result] || [i.result, "todo"]; return `<tr><td>${esc(i.claim)}</td><td><span class="pill ${v[1]}">${esc(v[0])}</span></td><td>${esc(i.note)}</td></tr>`; }).join("")}
+    </tbody></table></div></details>`;
+}
+
 function renderCard(c){
   const delta = `<dl class="delta"><dt>Field</dt><dd>${esc(c.field)}</dd><dt>Old</dt><dd class="old">${esc(c.old)}</dd><dt>New</dt><dd>${esc(c.new)}</dd><dt>Changed</dt><dd>${esc(c.change_date)} · <a href="${esc(c.history_url)}" target="_blank" rel="noopener">View record history diff</a></dd></dl>`;
   const head = pills => `<div class="card-head"><div class="card-title"><span class="t">#${c.no} · ${esc(c.sponsor)} · ${esc(c.drug)}</span><span class="m">${esc(c.nct)}</span></div><div class="pills">${pills}</div></div>`;
@@ -307,7 +316,7 @@ function renderCard(c){
   const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
   const pills = `<span class="pill ${sevCls}">Importance: ${esc(r.importance)}</span>${ver}<span class="pill todo">${esc(r.run_at)} · instruction ${esc(r.instruction)}</span>`;
   const more = c.runs.slice(1).map(x => `<details><summary>${esc(x.label)} · ${esc(x.run_at)} · ${esc(x.model)}</summary><div class="dbody"><p><b>Importance:</b> ${esc(x.importance)} · ${esc(x.importance_note)}</p>${renderRun(x)}</div></details>`).join("");
-  return `<article class="card sev-${esc(r.importance)}" id="brief-${c.no}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
+  return `<article class="card sev-${esc(r.importance)}" id="brief-${c.no}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${renderCheck(c.claim_check)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
 }
 
 function renderWatchlist(w){
