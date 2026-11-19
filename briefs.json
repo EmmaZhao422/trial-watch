@@ -345,7 +345,7 @@
       "runs": [
         {
           "label": "Run 1",
-          "run_at": "2026-11-19 18:50 ET",
+          "run_at": "2026-11-19 18:33 ET (approx.)",
           "model": "Claude Fable 5.2 with web search (run inside the project working session, not a fresh chat)",
           "instruction": "v0",
           "importance": "Medium",
@@ -458,7 +458,7 @@
       "runs": [
         {
           "label": "Run 1",
-          "run_at": "2026-11-19 18:50 ET",
+          "run_at": "2026-11-19 18:33 ET (approx.)",
           "model": "Claude Fable 5.2 with web search (run inside the project working session, not a fresh chat)",
           "instruction": "v0",
           "importance": "Medium",
@@ -568,7 +568,7 @@
       "runs": [
         {
           "label": "Run 1",
-          "run_at": "2026-11-19 18:50 ET",
+          "run_at": "2026-11-19 18:33 ET (approx.)",
           "model": "Claude Fable 5.2 with web search (run inside the project working session, not a fresh chat)",
           "instruction": "v0",
           "importance": "Low",
