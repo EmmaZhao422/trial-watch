@@ -123,6 +123,8 @@ li{margin:4px 0}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
 .err{color:var(--hi)}
+.copy{font:inherit;font-size:12.5px;padding:3px 8px;border-radius:5px;border:1px solid var(--line);background:var(--panel);color:var(--accent);cursor:pointer;white-space:nowrap}
+.copy:hover{border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -163,7 +165,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
     <thead><tr><th>Date</th><th>Trial</th><th>Field</th><th>Old → New</th><th>Registry</th><th>Brief</th></tr></thead>
     <tbody id="chBody"></tbody>
   </table></div>
-  <p class="sub" style="margin-top:8px">Found automatically: a SQL query compares each registered version of a trial with the version before it. Dates are the day the sponsor submitted the update.</p>
+  <p class="sub" style="margin-top:8px">Found automatically: a SQL query compares each registered version of a trial with the version before it. Dates are the day the sponsor submitted the update. For a change without a brief, "Copy Agent input" copies the Agent instruction plus this change, ready to paste into a chat model with web search.</p>
 </section>
 
 <section id="briefs">
@@ -339,10 +341,24 @@ function renderChanges(d, briefs){
   document.getElementById("chNote").textContent = `${rows.length} changes across ${d.versions_compared} registered versions · newest first`;
   document.getElementById("chBody").innerHTML = rows.map(r => {
     const b = briefFor[r.nct + "|" + r.version];
-    const brief = !b ? `<span class="sub">No brief yet</span>` : `<a href="#brief-${b.no}">Brief #${b.no}</a>`;
+    const brief = !b ? `<button class="copy" type="button" data-key="${esc(r.nct)}|${esc(r.version)}">Copy Agent input</button>` : `<a href="#brief-${b.no}">Brief #${b.no}</a>`;
     return `<tr><td class="mono">${esc(r.version_date)}</td><td>${esc(r.company)} · ${esc(r.label)}<br><span class="mono sub">${esc(r.nct)} · version ${esc(r.version)}</span></td><td>${esc(FIELD[r.field] || r.field)}</td><td class="mono" style="white-space:normal"><span class="sub" style="text-decoration:line-through">${esc(showValue(r.field, r.old_value))}</span> → ${esc(showValue(r.field, r.new_value))}</td><td><a class="src" href="${esc(r.compare_url)}" target="_blank" rel="noopener">Compare versions</a></td><td style="white-space:nowrap">${brief}</td></tr>`;
   }).join("");
+  document.getElementById("chBody").onclick = async e => {
+    const btn = e.target.closest(".copy"); if (!btn) return;
+    const [nct, version] = btn.dataset.key.split("|");
+    const same = rows.filter(x => x.nct === nct && String(x.version) === version);
+    const first = same[0];
+    const fields = same.map(x => `${FIELD[x.field] || x.field}: ${showValue(x.field, x.old_value)} -> ${showValue(x.field, x.new_value)}`).join("; ");
+    const text = `${INSTRUCTION.trim()}\n\nToday's date: ${new Date().toISOString().slice(0, 10)}.\n\nCHANGE TO INVESTIGATE\nTrial: ${nct}, ${first.company}, ${first.label}\nChange: ${fields}\nDate of change: ${first.version_date} (record version ${version})\nRecord History: ${first.compare_url}\nTrial page: https://clinicaltrials.gov/study/${nct}\n`;
+    try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
+    catch (err) { btn.textContent = "Copy failed"; }
+    setTimeout(() => { btn.textContent = "Copy Agent input"; }, 2000);
+  };
 }
+
+let INSTRUCTION = "";
+fetch("agent/instruction_v0.txt", {cache: "no-store"}).then(r => r.ok ? r.text() : "").then(t => { INSTRUCTION = t; }).catch(() => {});
 
 const briefsReady = loadJSON("briefs.json");
 briefsReady.then(b => {
