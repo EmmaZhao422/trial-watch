@@ -48,6 +48,7 @@ jobs:
           git add watchlist.json snapshots
           if [ -d history ]; then git add history; fi
           if [ -f changes.json ]; then git add changes.json; fi
+          if [ -f feed.xml ]; then git add feed.xml; fi
           git diff --cached --quiet || (git commit -m "Update watchlist snapshot" && git push)
 
       - uses: actions/configure-pages@v5
