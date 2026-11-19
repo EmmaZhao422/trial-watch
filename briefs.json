@@ -222,6 +222,107 @@
             "site.novonordisk.com \"AMAZE\" \"2026\" \"May\"",
             "\"NCT07533175\" \"2028-05-15\""
           ]
+        },
+        {
+          "label": "Re-check",
+          "run_at": "2026-11-19 18:50 ET (approx.)",
+          "model": "Claude Fable 5.2 with web search (run inside the project working session, not a fresh chat)",
+          "instruction": "v0",
+          "importance": "Medium",
+          "importance_note": "Nothing new explains the date change; one piece of background the earlier runs did not report is added.",
+          "what_happened": [
+            {
+              "text": "The change is as first reported: version 3, submitted May 18, 2026, moved estimated primary completion from May 15 to August 7, 2028, which is 12 weeks later and the same day as estimated study completion.",
+              "links": [
+                [
+                  "Record History",
+                  "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel"
+                ]
+              ]
+            },
+            {
+              "text": "Every later version, up to version 9 of November 5, 2026, kept that date.",
+              "links": [
+                [
+                  "Record History",
+                  "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=8&b=9#version-content-panel"
+                ]
+              ]
+            }
+          ],
+          "sources_say": [
+            {
+              "text": "Novo Nordisk's presentation for the first six months of 2025 described AMAZE 2 as an 80-week placebo-controlled trial.",
+              "links": [
+                [
+                  "H1 2025 presentation, slide 14",
+                  "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2025/Q2-2025-investor-presentation-updated.pdf"
+                ]
+              ]
+            },
+            {
+              "text": "Its second-quarter 2026 presentation describes the same trial as 84 weeks.",
+              "links": [
+                [
+                  "Q2 2026 presentation, slide 39",
+                  "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q2-2026-Full%20presentation.pdf"
+                ]
+              ]
+            },
+            {
+              "text": "The nine-month report of November 4, 2026 says nothing about AMAZE 2 timing. The appendices after Appendix 2 were not read.",
+              "links": [
+                [
+                  "Nine-month report",
+                  "https://www.sec.gov/Archives/edgar/data/0000353278/000162828026069805/caq32026.htm"
+                ]
+              ]
+            }
+          ],
+          "evidence_insufficient": true,
+          "unclear": [
+            "When did the planned length change from 80 to 84 weeks, and is that connected to the registry date?",
+            "Why does primary completion now fall on the same day as study completion?"
+          ],
+          "analyst_view": [
+            "[Inference] The longer planned duration is related background, not an explanation. Confidence that it caused this change is low: the plan grew by 4 weeks, the registry date moved by 12, and no source links the two.",
+            "[Inference] Still no sign of a change to when results are expected."
+          ],
+          "sources": [
+            {
+              "title": "NCT07533175 history",
+              "publisher": "ClinicalTrials.gov",
+              "date": "versions 3 and 9",
+              "url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel",
+              "supports": "Section 1"
+            },
+            {
+              "title": "Investor presentation, first six months of 2025",
+              "publisher": "Novo Nordisk",
+              "date": "August 2025; publication day unverified",
+              "url": "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2025/Q2-2025-investor-presentation-updated.pdf",
+              "supports": "Section 2, bullet 1"
+            },
+            {
+              "title": "Q2 2026 investor presentation",
+              "publisher": "Novo Nordisk",
+              "date": "Q2 2026; publication day unverified",
+              "url": "https://www.novonordisk.com/content/dam/nncorp/global/en/investors/pdfs/financial-results/2026/Q2-2026-Full%20presentation.pdf",
+              "supports": "Section 2, bullet 2"
+            },
+            {
+              "title": "Financial report for the first nine months of 2026 (Form 6-K)",
+              "publisher": "Novo Nordisk / SEC",
+              "date": "2026-11-04",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000353278/000162828026069805/caq32026.htm",
+              "supports": "Section 2, bullet 3"
+            }
+          ],
+          "searches": [
+            "Novo Nordisk Q1 2026 investor presentation AMAZE 2 zenagamtide 84-week",
+            "Novo Nordisk Q2 2026 investor presentation pdf \"AMAZE 2\" 84 weeks placebo type 2 diabetes zenagamtide phase 3 programme",
+            "Novo Nordisk nine months 2026 financial report zenagamtide AMAZE recruitment"
+          ]
         }
       ],
       "claim_check": {
@@ -372,6 +473,83 @@
             "site.novonordisk.com CagriSema \"REDEFINE 11\" \"2025\"",
             "\"REDEFINE 11\" \"delay\" \"December\" 2025",
             "\"NCT07011667\" \"609\" \"2027\""
+          ]
+        },
+        {
+          "label": "Re-check",
+          "run_at": "2026-11-19 18:50 ET (approx.)",
+          "model": "Claude Fable 5.2 with web search (run inside the project working session, not a fresh chat)",
+          "instruction": "v0",
+          "importance": "Medium",
+          "importance_note": "Still no stated reason, but the new date fits the company's published timing for a trial of the same design.",
+          "what_happened": [
+            {
+              "text": "Version 4, submitted December 5 and posted December 12, 2025, changed enrollment from 600 (estimated) to 609 (actual) and estimated primary completion from December 15, 2026 to March 1, 2027.",
+              "links": [
+                [
+                  "Record History",
+                  "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel"
+                ]
+              ]
+            },
+            {
+              "text": "The same version also moved estimated study completion 15 days earlier, from November 1 to October 17, 2028. Run 1 did not report this.",
+              "links": [
+                [
+                  "Record History",
+                  "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel"
+                ]
+              ]
+            }
+          ],
+          "sources_say": [
+            {
+              "text": "A Novo Nordisk release of February 23, 2026 describes REDEFINE 11 as an 80-week placebo-controlled trial of CagriSema in about 600 adults with obesity, with an 80-week extension, and expects data in the first half of 2027.",
+              "links": [
+                [
+                  "Company release, via BioSpace",
+                  "https://www.biospace.com/press-releases/novo-nordisk-a-s-cagrisema-demonstrated-23-weight-loss-in-an-open-label-head-to-head-redefine-4-trial-in-people-with-obesity-the-primary-endpoint-was-not-achieved"
+                ]
+              ]
+            },
+            {
+              "text": "The registry record has the same features (primary outcome at week 80, a main study plus an extension, 609 participants) but carries no trial acronym, and the release gives no NCT number.",
+              "links": [
+                [
+                  "Trial record",
+                  "https://clinicaltrials.gov/study/NCT07011667"
+                ]
+              ]
+            }
+          ],
+          "evidence_insufficient": true,
+          "unclear": [
+            "Is NCT07011667 REDEFINE 11? No source states it.",
+            "Why did primary completion move later while study completion moved earlier?"
+          ],
+          "analyst_view": [
+            "[Inference] This record is probably REDEFINE 11. Confidence is moderate: duration, size, comparator and extension all match, but no source names the record.",
+            "[Inference] If so, the March 2027 primary completion fits the company's first-half-2027 data expectation, so the revision looks like a schedule update, not a setback. Confidence is low to moderate.",
+            "[Inference] The enrollment change records the final count once recruitment had closed. Confidence is moderate."
+          ],
+          "sources": [
+            {
+              "title": "NCT07011667 history, v3–v4",
+              "publisher": "ClinicalTrials.gov",
+              "date": "2025-12-12 posted",
+              "url": "https://clinicaltrials.gov/study/NCT07011667?tab=history&a=3&b=4#version-content-panel",
+              "supports": "Section 1"
+            },
+            {
+              "title": "CagriSema REDEFINE 4 headline results (company release)",
+              "publisher": "Novo Nordisk, republished by BioSpace",
+              "date": "2026-02-23",
+              "url": "https://www.biospace.com/press-releases/novo-nordisk-a-s-cagrisema-demonstrated-23-weight-loss-in-an-open-label-head-to-head-redefine-4-trial-in-people-with-obesity-the-primary-endpoint-was-not-achieved",
+              "supports": "Section 2, bullet 1"
+            }
+          ],
+          "searches": [
+            "Novo Nordisk full year 2024 investor presentation REDEFINE 11 dose re-escalation longer duration CagriSema additional weight loss potential"
           ]
         }
       ],
