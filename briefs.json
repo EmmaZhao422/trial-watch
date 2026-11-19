@@ -223,7 +223,53 @@
             "\"NCT07533175\" \"2028-05-15\""
           ]
         }
-      ]
+      ],
+      "claim_check": {
+        "label": "AI pre-check by Claude, 2026-11-17 (run 1)",
+        "summary": "7 of 8 claims match their sources; 1 could not be checked",
+        "items": [
+          {
+            "claim": "Version 3 was submitted May 18 and posted May 19, 2026; primary completion moved from 2028-05-15 to 2028-08-07",
+            "result": "match",
+            "note": "Registry version data"
+          },
+          {
+            "claim": "Overall status stayed Recruiting and study completion stayed August 7, 2028",
+            "result": "match",
+            "note": "Registry version data"
+          },
+          {
+            "claim": "Q1 presentation, slide 43: AMAZE 2 is an 84-week placebo-controlled weight-loss trial in type 2 diabetes",
+            "result": "unchecked",
+            "note": "The PDF could not be opened; Novo's Q2 slide says the same"
+          },
+          {
+            "claim": "Q2 presentation, slide 39, keeps that description and calls timelines directional",
+            "result": "match",
+            "note": "Slide 39 and its footnote"
+          },
+          {
+            "claim": "The August financial report (page 19) covers HF-POLARIS and AMAZE 8, not this date change",
+            "result": "match",
+            "note": "Read in a copy of the same report; the last appendices were not read"
+          },
+          {
+            "claim": "That report is dated August 4, 2026",
+            "result": "match",
+            "note": "Company announcement No 48 / 2026"
+          },
+          {
+            "claim": "NNC0487-0111 is zenagamtide",
+            "result": "match",
+            "note": "The registry lists NNC0487-0111 for AMAZE 2; Novo calls AMAZE the zenagamtide programme"
+          },
+          {
+            "claim": "No public source explains the date change",
+            "result": "match",
+            "note": "Three further searches found none"
+          }
+        ]
+      }
     },
     {
       "no": 3,
@@ -328,7 +374,48 @@
             "\"NCT07011667\" \"609\" \"2027\""
           ]
         }
-      ]
+      ],
+      "claim_check": {
+        "label": "AI pre-check by Claude, 2026-11-19",
+        "summary": "4 of 6 claims match their sources; 2 could not be confirmed; 1 change in the same version was missed",
+        "items": [
+          {
+            "claim": "Version 4 matches the supplied changes; primary completion moved 76 days later",
+            "result": "match",
+            "note": "Registry version data; submitted December 5, 2025"
+          },
+          {
+            "claim": "Status stayed Active, not recruiting; the primary outcome stayed relative body-weight change to week 80",
+            "result": "match",
+            "note": "Registry version data"
+          },
+          {
+            "claim": "Full-year 2024 presentation, slide 15: REDEFINE 11 explores more weight loss through dose re-escalation and longer duration",
+            "result": "unchecked",
+            "note": "The PDF could not be opened; trade press from February 2025 reports the same plan"
+          },
+          {
+            "claim": "The 2025 annual report lists REDEFINE 8 and 11 as initiated trials on long-term weight loss",
+            "result": "match",
+            "note": "Annual report page, obesity clinical progress"
+          },
+          {
+            "claim": "NCT07011667 is REDEFINE 11",
+            "result": "unchecked",
+            "note": "The registry record carries no acronym; the design is consistent but no source states the link"
+          },
+          {
+            "claim": "No public source explains the changes",
+            "result": "match",
+            "note": "Further searches found none"
+          },
+          {
+            "claim": "(Not in the brief) Study completion also moved, from 2028-11-01 to 2028-10-17, in the same version",
+            "result": "missed",
+            "note": "Found by the change-detection SQL"
+          }
+        ]
+      }
     },
     {
       "no": 4,
