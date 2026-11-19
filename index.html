@@ -316,8 +316,9 @@ function renderCard(c){
   const r = c.runs[0];
   const sevCls = {High:"hi", Medium:"warn", Low:"ok"}[r.importance] || "todo";
   const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
-  const age = (Date.now() - new Date(String(r.run_at).slice(0, 10))) / 86400000;
-  const recheck = r.evidence_insufficient && age > 7 ? `<span class="pill acc">Re-check due · run ${Math.floor(age)} days ago</span>` : "";
+  const last = c.runs[c.runs.length - 1];
+  const age = (Date.now() - new Date(String(last.run_at).slice(0, 10))) / 86400000;
+  const recheck = last.evidence_insufficient && age > 7 ? `<span class="pill acc">Re-check due · last run ${Math.floor(age)} days ago</span>` : "";
   const pills = `<span class="pill ${sevCls}">Importance: ${esc(r.importance)}</span>${ver}${recheck}<span class="pill todo">${esc(r.run_at)} · instruction ${esc(r.instruction)}</span>`;
   const more = c.runs.slice(1).map(x => `<details><summary>${esc(x.label)} · ${esc(x.run_at)} · ${esc(x.model)}</summary><div class="dbody"><p><b>Importance:</b> ${esc(x.importance)} · ${esc(x.importance_note)}</p>${renderRun(x)}</div></details>`).join("");
   return `<article class="card sev-${esc(r.importance)}" id="brief-${c.no}">${head(pills)}${delta}<p style="font-size:14px"><b>Why it matters:</b> ${esc(r.importance_note)}</p>${renderRun(r)}${renderCheck(c.claim_check)}${more}<p class="sub" style="margin:0">Model: ${esc(r.model)}</p></article>`;
