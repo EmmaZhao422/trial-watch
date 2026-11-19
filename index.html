@@ -149,7 +149,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
   <div class="stats" id="stats">
     <div class="stat"><div class="v" id="sTrials">8</div><div class="k">Trials on the watchlist</div></div>
     <div class="stat"><div class="v" id="sChanges">—</div><div class="k">Registry changes detected</div></div>
-    <div class="stat"><div class="v">3</div><div class="k">Agent runs so far</div></div>
+    <div class="stat"><div class="v" id="sRuns">—</div><div class="k">Agent runs so far</div></div>
     <div class="stat"><div class="v" id="sUpdated">—</div><div class="k">Data last refreshed</div></div>
   </div>
 </section>
@@ -222,19 +222,21 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
   <div class="sec-head"><h2>Alpha evaluation</h2><span class="sub">Goal of this version: given a real registry change, the Agent finds sources on its own, writes a linked brief, and the brief holds up under review</span></div>
   <div class="cols">
     <div class="panel">
-      <h3 style="margin-bottom:8px">Early observations <span class="pill warn">⚠ sources not yet verified</span></h3>
+      <h3 style="margin-bottom:8px">Early observations <span class="pill warn">⚠ not yet human-verified</span></h3>
       <ol>
-        <li><b>Format and honesty held up:</b> all 3 runs used the four-part format, linked their facts and labeled inferences separately; none found an explanation, and all said "Evidence insufficient" instead of guessing.</li>
+        <li><b>Format and honesty held up:</b> the first 3 runs used the four-part format, linked their facts and labeled inferences separately; none found an explanation, and all said "Evidence insufficient" instead of guessing.</li>
         <li><b>Stable conclusion, unstable path:</b> running the same change twice gave the same conclusion, but only 1 cited source overlapped.</li>
         <li><b>Filler sources:</b> the Agent cites sources that mention the drug but do not explain this change.</li>
         <li><b>Names not in the input:</b> the Agent introduced "zenagamtide" and "REDEFINE 11". A first check suggests both match; pending human review.</li>
         <li><b>Possibly missed a relevant source:</b> a Feb 2026 Novo Nordisk announcement expects REDEFINE 11 data in 1H 2027, consistent with change #3's new date; the Agent did not cite it.</li>
+        <li><b>A cause is found when one exists:</b> for change #4 the Agent found the company's own statement that enrollment was complete, published one week after the registry update. Changes #5 and #6 had no such statement and were reported as "Evidence insufficient".</li>
       </ol>
     </div>
     <div class="panel">
       <h3 style="margin-bottom:8px">Review status and next steps</h3>
       <ul>
         <li><span class="pill warn">In progress</span> Check every Agent claim (correct / wrong / no source)</li>
+        <li><span class="pill acc">AI pre-check</span> Brief #2, run 1: 7 of 8 claims matched their sources; 1 source could not be opened. This is not the human review.</li>
         <li><span class="pill todo">To do</span> Hand-write the brief for change #1 as a human baseline</li>
         <li><span class="pill todo">To do</span> Revise the instruction to v1 based on the issues found, re-run and compare</li>
         <li><span class="pill todo">Later</span> Scale to 15–20 real changes, with separate development and test cases</li>
@@ -246,8 +248,9 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
   <div class="panel" style="margin-top:14px">
     <h3 style="margin-bottom:6px">Known limitations</h3>
     <ul>
-      <li>Briefs are generated offline: the Agent runs in ChatGPT (with web search) under the instruction, and the results are then published here. The site cannot trigger the Agent yet.</li>
-      <li>Only 3 development cases so far, all "Evidence insufficient"; cases where a cause can be found are not tested yet.</li>
+      <li>Briefs are generated offline: the Agent runs in ChatGPT or Claude (with web search) under the instruction, and the results are then published here. The site cannot trigger the Agent yet.</li>
+      <li>Only 6 cases so far, and only 1 has a cause that public sources explain.</li>
+      <li>Briefs #4 to #6 were written by Claude inside the project's working session rather than a fresh chat, so they are not an independent test of the instruction.</li>
       <li>No accuracy figure yet; that comes after the claim-by-claim review.</li>
     </ul>
   </div>
@@ -257,7 +260,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
 
 <footer>
   <span>Emma Zhao · Duke University · Portfolio project (in progress)</span>
-  <span>Who did what: research design, therapeutic area and case selection, and fact-checking by Emma; instruction v0, watchlist candidates, change-detection SQL and site code drafted with AI assistance (Claude / ChatGPT); Agent runs use ChatGPT with web search.</span>
+  <span>Who did what: research design, therapeutic area and case selection, and fact-checking by Emma; instruction v0, watchlist candidates, change-detection SQL and site code drafted with AI assistance (Claude / ChatGPT); Agent runs use ChatGPT or Claude with web search.</span>
   <span>ClinicalTrials.gov original records are the source of truth for all trial information.</span>
 </footer>
 
@@ -279,7 +282,7 @@ function renderRun(r){
   <div class="four">
     <div class="q"><h4>1 · What happened</h4><ul>${li(r.what_happened)}</ul></div>
     <div class="q"><h4>2 · What sources say</h4><ul>${li(r.sources_say)}</ul>
-      ${r.evidence_insufficient ? `<div class="ins">Evidence insufficient: no public source found that explains this change.</div>` : ""}</div>
+      ${r.evidence_insufficient ? `<div class="ins">Evidence insufficient: no public source found that explains this change.</div>` : ""}${r.explained ? `<div class="ins" style="background:var(--ok-bg);color:var(--ok)">Explanation found: a public source accounts for this change.</div>` : ""}</div>
     <div class="q"><h4>3 · What is still unclear</h4><ul>${r.unclear.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
     <div class="q"><h4>4 · Analyst view</h4><ul>${r.analyst_view.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
   </div>
@@ -344,6 +347,7 @@ function renderChanges(d, briefs){
 const briefsReady = loadJSON("briefs.json");
 briefsReady.then(b => {
   document.getElementById("cards").innerHTML = b.changes.map(renderCard).join("");
+  document.getElementById("sRuns").textContent = b.changes.reduce((n, c) => n + (c.runs || []).length, 0);
 }).catch(() => { document.getElementById("cards").innerHTML = `<p class="err">Briefs did not load. Please refresh the page.</p>`; });
 
 Promise.all([loadJSON("changes.json"), briefsReady.catch(() => null)]).then(([d, b]) => renderChanges(d, b)).catch(() => {
