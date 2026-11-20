@@ -8,8 +8,8 @@ A portfolio project by Emma Zhao (Duke University). Pharma competitive-intellige
 
 - Watchlist of 8 obesity / weight-loss trials (Lilly, Novo Nordisk, Amgen, AstraZeneca), refreshed daily from the ClinicalTrials.gov API by GitHub Actions, with a saved snapshot per day.
 - Change detection is automated: a SQL query over every registered version of each trial lists the changes shown on the site.
-- 6 briefs so far under instruction v0: 3 runs with ChatGPT on the 3 development cases, and 3 runs with Claude on newer changes. One brief (#4) found a public explanation; the others report "Evidence insufficient".
-- Agent output is **not yet human-verified**; claim-by-claim review, a human baseline brief, and an improved instruction (v1) are next. No accuracy figure is claimed.
+- 6 briefs so far under instruction v0: 3 runs with ChatGPT on development cases #2 and #3, and runs with Claude on #1 and on three newer changes, plus re-checks of #2 and #3. One brief (#4) found a public explanation; the others report "Evidence insufficient".
+- Agent output is **not yet human-verified**; claim-by-claim human review and an improved instruction (v1) are next. No accuracy figure is claimed.
 
 ## Files
 
