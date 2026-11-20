@@ -240,7 +240,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
       <ul>
         <li><span class="pill warn">In progress</span> Check every Agent claim (correct / wrong / no source)</li>
         <li><span class="pill acc">AI pre-check</span> Brief #2, run 1: 7 of 8 claims matched their sources; 1 source could not be opened. Brief #3: 4 of 6 matched, 2 could not be confirmed, and the Agent missed one date change in the same record version. Details are under each brief. This is not the human review.</li>
-        <li><span class="pill todo">To do</span> Hand-write the brief for change #1 as a human baseline</li>
+        <li><span class="pill todo">Dropped</span> A hand-written brief for change #1 as a human baseline: not written; the Agent ran change #1 directly on Nov 19, 2026</li>
         <li><span class="pill todo">To do</span> Revise the instruction to v1 based on the issues found, re-run and compare</li>
         <li><span class="pill acc">Rule</span> A brief that ends in "Evidence insufficient" is flagged for a re-check after 7 days: for change #4 the company's explanation appeared a week after the registry update.</li>
         <li><span class="pill todo">Later</span> Scale to 15–20 real changes, with separate development and test cases</li>
@@ -254,7 +254,8 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
     <ul>
       <li>Briefs are generated offline: the Agent runs in ChatGPT or Claude (with web search) under the instruction, and the results are then published here. The site cannot trigger the Agent yet.</li>
       <li>Only 6 cases so far, and only 1 has a cause that public sources explain.</li>
-      <li>Briefs #4 to #6 were written by Claude inside the project's working session rather than a fresh chat, so they are not an independent test of the instruction.</li>
+      <li>There is no hand-written brief to compare the Agent against.</li>
+      <li>Briefs #1 and #4 to #6 were written by Claude inside the project's working session rather than a fresh chat, so they are not an independent test of the instruction.</li>
       <li>No accuracy figure yet; that comes after the claim-by-claim review.</li>
     </ul>
   </div>
