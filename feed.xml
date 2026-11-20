@@ -21,6 +21,27 @@
     <summary>NCT07533175, record version 9, submitted 2026-11-05.</summary>
   </entry>
   <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v11-overall_status</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): overall_status ACTIVE_NOT_RECRUITING -&gt; COMPLETED</title>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=10&amp;b=11#version-content-panel"/>
+    <summary>NCT06973720, record version 11, submitted 2026-11-04.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v11-study_completion_date</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): study_completion_date 2026-10-16 -&gt; 2026-10-19</title>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=10&amp;b=11#version-content-panel"/>
+    <summary>NCT06973720, record version 11, submitted 2026-11-04.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v11-study_completion_type</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): study_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=10&amp;b=11#version-content-panel"/>
+    <summary>NCT06973720, record version 11, submitted 2026-11-04.</summary>
+  </entry>
+  <entry>
     <id>https://emmazhao422.github.io/trial-watch/#NCT07037433-v32-overall_status</id>
     <title>Amgen · MariTide (maridebart cafraglutide) cardiovascular outcomes trial: overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
     <updated>2026-10-27T00:00:00Z</updated>
@@ -35,11 +56,116 @@
     <summary>NCT07215559, record version 18, submitted 2026-10-08.</summary>
   </entry>
   <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-enrollment</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): enrollment 120 -&gt; 8</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-enrollment_type</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): enrollment_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-overall_status</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): overall_status ACTIVE_NOT_RECRUITING -&gt; TERMINATED</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-primary_completion_date</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): primary_completion_date 2026-11-30 -&gt; 2026-09-11</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-primary_completion_type</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): primary_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-study_completion_date</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): study_completion_date 2026-12-31 -&gt; 2026-09-11</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v4-study_completion_type</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): study_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
+    <summary>NCT07553299, record version 4, submitted 2026-10-07.</summary>
+  </entry>
+  <entry>
     <id>https://emmazhao422.github.io/trial-watch/#NCT07153471-v25-overall_status</id>
     <title>Eli Lilly · Orforglipron (obesity/overweight with knee osteoarthritis): overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
     <updated>2026-10-01T00:00:00Z</updated>
     <link href="https://clinicaltrials.gov/study/NCT07153471?tab=history&amp;a=24&amp;b=25#version-content-panel"/>
     <summary>NCT07153471, record version 25, submitted 2026-10-01.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-enrollment</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): enrollment 600 -&gt; 712</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-enrollment_type</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): enrollment_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-overall_status</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): overall_status ACTIVE_NOT_RECRUITING -&gt; COMPLETED</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-primary_completion_date</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): primary_completion_date 2026-11 -&gt; 2026-07-21</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-primary_completion_type</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): primary_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-study_completion_date</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): study_completion_date 2027-01 -&gt; 2026-07-30</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06649045-v14-study_completion_type</id>
+    <title>Eli Lilly · Orforglipron in obstructive sleep apnea (ATTAIN-OSA): study_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06649045?tab=history&amp;a=13&amp;b=14#version-content-panel"/>
+    <summary>NCT06649045, record version 14, submitted 2026-09-10.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT07553299-v3-overall_status</id>
+    <title>Verdiva Bio · Oral ecnoglutide VRB-101 (weight maintenance): overall_status NOT_YET_RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
+    <updated>2026-07-31T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT07553299?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
+    <summary>NCT07553299, record version 3, submitted 2026-07-31.</summary>
   </entry>
   <entry>
     <id>https://emmazhao422.github.io/trial-watch/#NCT07667803-v2-overall_status</id>
@@ -49,11 +175,137 @@
     <summary>NCT07667803, record version 2, submitted 2026-07-09.</summary>
   </entry>
   <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-enrollment</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): enrollment 90 -&gt; 68</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-enrollment_type</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): enrollment_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-overall_status</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): overall_status SUSPENDED -&gt; TERMINATED</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-primary_completion_date</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): primary_completion_date 2027-03 -&gt; 2026-05-07</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-primary_completion_type</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): primary_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-study_completion_date</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): study_completion_date 2027-04 -&gt; 2026-05-07</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v30-study_completion_type</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): study_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-06-26T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=29&amp;b=30#version-content-panel"/>
+    <summary>NCT06828861, record version 30, submitted 2026-06-26.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v20-overall_status</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): overall_status ACTIVE_NOT_RECRUITING -&gt; COMPLETED</title>
+    <updated>2026-06-02T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=19&amp;b=20#version-content-panel"/>
+    <summary>NCT05929066, record version 20, submitted 2026-06-02.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v20-study_completion_date</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): study_completion_date 2026-05 -&gt; 2026-04-30</title>
+    <updated>2026-06-02T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=19&amp;b=20#version-content-panel"/>
+    <summary>NCT05929066, record version 20, submitted 2026-06-02.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v20-study_completion_type</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): study_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-06-02T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=19&amp;b=20#version-content-panel"/>
+    <summary>NCT05929066, record version 20, submitted 2026-06-02.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v19-enrollment</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): enrollment 2300 -&gt; 2335</title>
+    <updated>2026-05-20T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=18&amp;b=19#version-content-panel"/>
+    <summary>NCT05929066, record version 19, submitted 2026-05-20.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v19-enrollment_type</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): enrollment_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-05-20T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=18&amp;b=19#version-content-panel"/>
+    <summary>NCT05929066, record version 19, submitted 2026-05-20.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v19-primary_completion_date</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): primary_completion_date 2026-04 -&gt; 2026-04-06</title>
+    <updated>2026-05-20T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=18&amp;b=19#version-content-panel"/>
+    <summary>NCT05929066, record version 19, submitted 2026-05-20.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT05929066-v19-primary_completion_type</id>
+    <title>Eli Lilly · Retatrutide (TRIUMPH-1): primary_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-05-20T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT05929066?tab=history&amp;a=18&amp;b=19#version-content-panel"/>
+    <summary>NCT05929066, record version 19, submitted 2026-05-20.</summary>
+  </entry>
+  <entry>
     <id>https://emmazhao422.github.io/trial-watch/#NCT07533175-v3-primary_completion_date</id>
     <title>Novo Nordisk · NNC0487-0111 (AMAZE 2): primary_completion_date 2028-05-15 -&gt; 2028-08-07</title>
     <updated>2026-05-18T00:00:00Z</updated>
     <link href="https://clinicaltrials.gov/study/NCT07533175?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
     <summary>NCT07533175, record version 3, submitted 2026-05-18.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v8-enrollment</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): enrollment 250 -&gt; 268</title>
+    <updated>2026-05-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=7&amp;b=8#version-content-panel"/>
+    <summary>NCT06973720, record version 8, submitted 2026-05-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v8-enrollment_type</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): enrollment_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-05-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=7&amp;b=8#version-content-panel"/>
+    <summary>NCT06973720, record version 8, submitted 2026-05-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v8-primary_completion_date</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): primary_completion_date 2025-12-12 -&gt; 2025-12-16</title>
+    <updated>2026-05-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=7&amp;b=8#version-content-panel"/>
+    <summary>NCT06973720, record version 8, submitted 2026-05-05.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v8-study_completion_date</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): study_completion_date 2026-10 -&gt; 2026-10-16</title>
+    <updated>2026-05-05T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=7&amp;b=8#version-content-panel"/>
+    <summary>NCT06973720, record version 8, submitted 2026-05-05.</summary>
   </entry>
   <entry>
     <id>https://emmazhao422.github.io/trial-watch/#NCT07533175-v2-overall_status</id>
@@ -63,66 +315,45 @@
     <summary>NCT07533175, record version 2, submitted 2026-04-22.</summary>
   </entry>
   <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v29-primary_completion_date</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): primary_completion_date 2026-03 -&gt; 2027-03</title>
+    <updated>2026-04-06T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=28&amp;b=29#version-content-panel"/>
+    <summary>NCT06828861, record version 29, submitted 2026-04-06.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v29-study_completion_date</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): study_completion_date 2026-04 -&gt; 2027-04</title>
+    <updated>2026-04-06T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=28&amp;b=29#version-content-panel"/>
+    <summary>NCT06828861, record version 29, submitted 2026-04-06.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06828861-v28-overall_status</id>
+    <title>Aardvark Therapeutics · ARD-101 in Prader-Willi syndrome (HERO): overall_status RECRUITING -&gt; SUSPENDED</title>
+    <updated>2026-03-17T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06828861?tab=history&amp;a=27&amp;b=28#version-content-panel"/>
+    <summary>NCT06828861, record version 28, submitted 2026-03-17.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v3-primary_completion_date</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): primary_completion_date 2025-12 -&gt; 2025-12-12</title>
+    <updated>2026-01-20T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
+    <summary>NCT06973720, record version 3, submitted 2026-01-20.</summary>
+  </entry>
+  <entry>
+    <id>https://emmazhao422.github.io/trial-watch/#NCT06973720-v3-primary_completion_type</id>
+    <title>Pfizer · PF-08653944 monthly GLP-1 (VESPER-3): primary_completion_type ESTIMATED -&gt; ACTUAL</title>
+    <updated>2026-01-20T00:00:00Z</updated>
+    <link href="https://clinicaltrials.gov/study/NCT06973720?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
+    <summary>NCT06973720, record version 3, submitted 2026-01-20.</summary>
+  </entry>
+  <entry>
     <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-enrollment</id>
     <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): enrollment 600 -&gt; 609</title>
     <updated>2025-12-05T00:00:00Z</updated>
     <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
     <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-enrollment_type</id>
-    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): enrollment_type ESTIMATED -&gt; ACTUAL</title>
-    <updated>2025-12-05T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
-    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-primary_completion_date</id>
-    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): primary_completion_date 2026-12-15 -&gt; 2027-03-01</title>
-    <updated>2025-12-05T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
-    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v4-study_completion_date</id>
-    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): study_completion_date 2028-11-01 -&gt; 2028-10-17</title>
-    <updated>2025-12-05T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
-    <summary>NCT07011667, record version 4, submitted 2025-12-05.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07215559-v4-overall_status</id>
-    <title>Eli Lilly · Macupatide + eloralintide (alone or combined): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
-    <updated>2025-11-03T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07215559?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
-    <summary>NCT07215559, record version 4, submitted 2025-11-03.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07153471-v4-overall_status</id>
-    <title>Eli Lilly · Orforglipron (obesity/overweight with knee osteoarthritis): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
-    <updated>2025-10-15T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07153471?tab=history&amp;a=3&amp;b=4#version-content-panel"/>
-    <summary>NCT07153471, record version 4, submitted 2025-10-15.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v3-overall_status</id>
-    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): overall_status RECRUITING -&gt; ACTIVE_NOT_RECRUITING</title>
-    <updated>2025-08-28T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=2&amp;b=3#version-content-panel"/>
-    <summary>NCT07011667, record version 3, submitted 2025-08-28.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07037433-v2-overall_status</id>
-    <title>Amgen · MariTide (maridebart cafraglutide) cardiovascular outcomes trial: overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
-    <updated>2025-07-18T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07037433?tab=history&amp;a=1&amp;b=2#version-content-panel"/>
-    <summary>NCT07037433, record version 2, submitted 2025-07-18.</summary>
-  </entry>
-  <entry>
-    <id>https://emmazhao422.github.io/trial-watch/#NCT07011667-v2-overall_status</id>
-    <title>Novo Nordisk · CagriSema (cagrilintide + semaglutide): overall_status NOT_YET_RECRUITING -&gt; RECRUITING</title>
-    <updated>2025-06-10T00:00:00Z</updated>
-    <link href="https://clinicaltrials.gov/study/NCT07011667?tab=history&amp;a=1&amp;b=2#version-content-panel"/>
-    <summary>NCT07011667, record version 2, submitted 2025-06-10.</summary>
   </entry>
 </feed>
