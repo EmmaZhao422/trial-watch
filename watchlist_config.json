@@ -1,6 +1,6 @@
 {
   "therapeutic_area": "Obesity / weight-loss drugs",
-  "note": "Alpha watchlist (candidates pulled from the ClinicalTrials.gov API on 2026-10-20; pending Emma's confirmation). To add or remove trials, edit this file only.",
+  "note": "Alpha watchlist. Trials 1 to 8: candidates pulled from the ClinicalTrials.gov API on 2026-10-20. Trials 9 to 13: added on 2026-11-19 because their records show changes that sponsors usually explain in public (a completed trial with published results, a termination, a suspension). To add or remove trials, edit this file only; a new trial also needs its past versions loaded into history/versions.csv.",
   "trials": [
     {
       "nct": "NCT07153471",
@@ -41,6 +41,31 @@
       "nct": "NCT07784725",
       "company": "AstraZeneca",
       "label": "AZD6234 (lenbelintide)"
+    },
+    {
+      "nct": "NCT06973720",
+      "company": "Pfizer",
+      "label": "PF-08653944 monthly GLP-1 (VESPER-3)"
+    },
+    {
+      "nct": "NCT05929066",
+      "company": "Eli Lilly",
+      "label": "Retatrutide (TRIUMPH-1)"
+    },
+    {
+      "nct": "NCT06649045",
+      "company": "Eli Lilly",
+      "label": "Orforglipron in obstructive sleep apnea (ATTAIN-OSA)"
+    },
+    {
+      "nct": "NCT07553299",
+      "company": "Verdiva Bio",
+      "label": "Oral ecnoglutide VRB-101 (weight maintenance)"
+    },
+    {
+      "nct": "NCT06828861",
+      "company": "Aardvark Therapeutics",
+      "label": "ARD-101 in Prader-Willi syndrome (HERO)"
     }
   ]
 }
