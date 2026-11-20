@@ -239,7 +239,8 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
       <h3 style="margin-bottom:8px">Review status and next steps</h3>
       <ul>
         <li><span class="pill warn">In progress</span> Check every Agent claim (correct / wrong / no source)</li>
-        <li><span class="pill acc">AI pre-check</span> Brief #2, run 1: 7 of 8 claims matched their sources; 1 source could not be opened. Brief #3: 4 of 6 matched, 2 could not be confirmed, and the Agent missed one date change in the same record version. Details are under each brief. This is not the human review.</li>
+        <li><span class="pill ok">Reviewed</span> Brief #2, run 1: all 8 claims match their sources. Emma checked 5 of them herself; the other 3 were checked by AI in the source PDFs.</li>
+        <li><span class="pill acc">AI pre-check</span> Brief #3: 4 of 6 matched, 2 could not be confirmed, and the Agent missed one date change in the same record version. Details are under each brief. This is not the human review.</li>
         <li><span class="pill todo">Dropped</span> A hand-written brief for change #1 as a human baseline: not written; the Agent ran change #1 directly on Nov 19, 2026</li>
         <li><span class="pill todo">To do</span> Revise the instruction to v1 based on the issues found, re-run and compare</li>
         <li><span class="pill acc">Rule</span> A brief that ends in "Evidence insufficient" is flagged for a re-check after 7 days: for change #4 the company's explanation appeared a week after the registry update.</li>
@@ -256,7 +257,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
       <li>Only 6 cases so far, and only 1 has a cause that public sources explain.</li>
       <li>There is no hand-written brief to compare the Agent against.</li>
       <li>Briefs #1 and #4 to #6 were written by Claude inside the project's working session rather than a fresh chat, so they are not an independent test of the instruction.</li>
-      <li>No accuracy figure yet; that comes after the claim-by-claim review.</li>
+      <li>Only one run of one brief (#2) has been reviewed with a human in the loop. Its 8 of 8 is a result for that brief, not an accuracy rate for the Agent.</li>
     </ul>
   </div>
 </section>
@@ -302,9 +303,9 @@ function renderRun(r){
 const CHECK = {match:["Matches source","ok"], unchecked:["Could not check","todo"], missed:["Missed by the Agent","warn"], wrong:["Wrong","hi"]};
 function renderCheck(k){
   if (!k) return "";
-  return `<details><summary>Claim check · ${esc(k.summary)}</summary><div class="dbody"><p class="sub">${esc(k.label)}. This is not the human review.</p>
-    <table><thead><tr><th>Claim in the brief</th><th>Result</th><th>Checked against</th></tr></thead><tbody>
-    ${k.items.map(i => { const v = CHECK[i.result] || [i.result, "todo"]; return `<tr><td>${esc(i.claim)}</td><td><span class="pill ${v[1]}">${esc(v[0])}</span></td><td>${esc(i.note)}</td></tr>`; }).join("")}
+  return `<details><summary>Claim check · ${esc(k.summary)}</summary><div class="dbody"><p class="sub">${esc(k.label)}.${k.human ? "" : " This is not the human review."}</p>
+    <table><thead><tr><th>Claim in the brief</th><th>Result</th><th>Checked against</th><th>Checked by</th></tr></thead><tbody>
+    ${k.items.map(i => { const v = CHECK[i.result] || [i.result, "todo"]; return `<tr><td>${esc(i.claim)}</td><td><span class="pill ${v[1]}">${esc(v[0])}</span></td><td>${esc(i.note)}</td><td>${esc(i.by || "AI")}</td></tr>`; }).join("")}
     </tbody></table></div></details>`;
 }
 
@@ -316,7 +317,7 @@ function renderCard(c){
   }
   const r = c.runs[0];
   const sevCls = {High:"hi", Medium:"warn", Low:"ok"}[r.importance] || "todo";
-  const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
+  const ver = c.verification === "verified" ? `<span class="pill ok">✓ Human-verified</span>` : c.verification === "reviewed" ? `<span class="pill ok">✓ ${esc(c.verification_label)}</span>` : `<span class="pill warn">⚠ Not yet human-verified</span>`;
   const last = c.runs[c.runs.length - 1];
   const age = (Date.now() - new Date(String(last.run_at).slice(0, 10))) / 86400000;
   const recheck = last.evidence_insufficient && age > 7 ? `<span class="pill acc">Re-check due · last run ${Math.floor(age)} days ago</span>` : "";
