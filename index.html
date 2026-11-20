@@ -147,7 +147,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
   <div>
     <h1>When a competitor's trial record changes, an Agent finds out why and writes a sourced brief</h1>
     <p>Built for pharma competitive-intelligence and commercial-analytics teams. The watchlist refreshes from ClinicalTrials.gov every day. When a registry record changes, the Agent decides for itself which public sources to check (company announcements, investor materials, regulatory filings and more) and writes a four-part brief: <b>What happened / What sources say / What is still unclear / Analyst view</b>. Every fact links to its source; if nothing explains the change, the brief says "Evidence insufficient".</p>
-    <p class="sub">Current focus: obesity / weight-loss drugs · Phase 2 and 3 trials from Lilly, Novo Nordisk, Amgen and AstraZeneca</p>
+    <p class="sub">Current focus: obesity / weight-loss drugs · Phase 2 and 3 trials from Lilly, Novo Nordisk, Amgen, AstraZeneca, Pfizer, Verdiva Bio and Aardvark</p>
   </div>
   <div class="stats" id="stats">
     <div class="stat"><div class="v" id="sTrials">8</div><div class="k">Trials on the watchlist</div></div>
@@ -166,6 +166,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
     <thead><tr><th>Date</th><th>Trial</th><th>Field</th><th>Old → New</th><th>Registry</th><th>Brief</th></tr></thead>
     <tbody id="chBody"></tbody>
   </table></div>
+  <p style="margin-top:8px"><button class="copy" id="chMore" type="button" hidden>Show all changes</button></p>
   <p class="sub" style="margin-top:8px">Found automatically: a SQL query compares each registered version of a trial with the version before it. Dates are the day the sponsor submitted the update. For a change without a brief, "Copy Agent input" copies the Agent instruction plus this change, ready to paste into a chat model with web search. To be told about new changes, follow the <a href="feed.xml">change feed</a> in any feed reader.</p>
 </section>
 
@@ -233,6 +234,7 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
         <li><b>Names not in the input:</b> the Agent introduced "zenagamtide" and "REDEFINE 11". A first check suggests both match; pending human review.</li>
         <li><b>Possibly missed a relevant source:</b> a Feb 2026 Novo Nordisk announcement expects REDEFINE 11 data in 1H 2027, consistent with change #3's new date; the Agent did not cite it.</li>
         <li><b>A cause is found when one exists:</b> for change #4 the Agent found the company's own statement that enrollment was complete, published one week after the registry update. Changes #5 and #6 had no such statement and were reported as "Evidence insufficient".</li>
+        <li><b>The kind of change predicts whether it is explained:</b> 7 of the 12 briefs found a public explanation. All six completions, terminations and suspensions (#7 to #12) were explained by a company release or by the registry's own "Why Stopped" field; of the six "recruitment closed" and date changes (#1 to #6), only one was.</li>
       </ol>
     </div>
     <div class="panel">
@@ -254,9 +256,9 @@ footer{max-width:1080px;margin:0 auto;padding:18px 20px 40px;border-top:1px soli
     <h3 style="margin-bottom:6px">Known limitations</h3>
     <ul>
       <li>Briefs are generated offline: the Agent runs in ChatGPT or Claude (with web search) under the instruction, and the results are then published here. The site cannot trigger the Agent yet.</li>
-      <li>Only 6 cases so far, and only 1 has a cause that public sources explain.</li>
+      <li>Only 12 cases so far. Changes #7 to #12 were chosen because their kind of change is usually explained in public, so 7 of 12 is not a success rate for the Agent.</li>
       <li>There is no hand-written brief to compare the Agent against.</li>
-      <li>Briefs #1 and #4 to #6 were written by Claude inside the project's working session rather than a fresh chat, so they are not an independent test of the instruction.</li>
+      <li>Briefs #1 and #4 to #12 were written by Claude inside the project's working session rather than a fresh chat, so they are not an independent test of the instruction.</li>
       <li>Only one run of one brief (#2) has been reviewed with a human in the loop. Its 8 of 8 is a result for that brief, not an accuracy rate for the Agent.</li>
     </ul>
   </div>
@@ -355,11 +357,19 @@ function renderChanges(d, briefs){
   const rows = d.changes || [];
   document.getElementById("sChanges").textContent = rows.length;
   document.getElementById("chNote").textContent = `${rows.length} changes across ${d.versions_compared} registered versions · newest first`;
-  document.getElementById("chBody").innerHTML = rows.map(r => {
+  const rowHtml = r => {
     const b = briefFor[r.nct + "|" + r.version];
     const brief = !b ? `<button class="copy" type="button" data-key="${esc(r.nct)}|${esc(r.version)}">Copy Agent input</button>` : `<a href="#brief-${b.no}">Brief #${b.no}</a>`;
     return `<tr><td class="mono">${esc(r.version_date)}</td><td>${esc(r.company)} · ${esc(r.label)}<br><span class="mono sub">${esc(r.nct)} · version ${esc(r.version)}</span></td><td>${esc(FIELD[r.field] || r.field)}</td><td class="mono" style="white-space:normal"><span class="sub" style="text-decoration:line-through">${esc(showValue(r.field, r.old_value))}</span> → ${esc(showValue(r.field, r.new_value))}</td><td><a class="src" href="${esc(r.compare_url)}" target="_blank" rel="noopener">Compare versions</a></td><td style="white-space:nowrap">${brief}</td></tr>`;
-  }).join("");
+  };
+  const more = document.getElementById("chMore");
+  const draw = all => {
+    document.getElementById("chBody").innerHTML = (all ? rows : rows.slice(0, 20)).map(rowHtml).join("");
+    more.hidden = all || rows.length <= 20;
+    more.textContent = `Show all ${rows.length} changes`;
+  };
+  more.onclick = () => draw(true);
+  draw(false);
   document.getElementById("chBody").onclick = async e => {
     const btn = e.target.closest(".copy"); if (!btn) return;
     const [nct, version] = btn.dataset.key.split("|");
