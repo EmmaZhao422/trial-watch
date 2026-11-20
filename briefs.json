@@ -114,7 +114,7 @@
       "change_date": "2026-05-18",
       "history_url": "https://clinicaltrials.gov/study/NCT07533175?tab=history&a=2&b=3#version-content-panel",
       "status": "generated",
-      "verification": "unverified",
+      "verification": "reviewed",
       "runs": [
         {
           "label": "Run 1",
@@ -413,51 +413,61 @@
         }
       ],
       "claim_check": {
-        "label": "AI pre-check by Claude, 2026-11-17 (run 1)",
-        "summary": "7 of 8 claims match their sources; 1 could not be checked",
+        "label": "Reviewed on 2026-11-19 (run 1). Emma Zhao checked 5 claims against the sources herself; Claude checked 2 in the PDFs she supplied and completed 1",
+        "human": true,
+        "summary": "8 of 8 claims match their sources (5 checked by Emma, 3 by AI)",
         "items": [
           {
             "claim": "Version 3 was submitted May 18 and posted May 19, 2026; primary completion moved from 2028-05-15 to 2028-08-07",
             "result": "match",
-            "note": "Registry version data"
+            "note": "Record History comparison, versions 2 and 3",
+            "by": "Emma"
           },
           {
             "claim": "Overall status stayed Recruiting and study completion stayed August 7, 2028",
             "result": "match",
-            "note": "Registry version data"
+            "note": "Record History comparison, versions 2 and 3",
+            "by": "Emma"
           },
           {
             "claim": "Q1 presentation, slide 43: AMAZE 2 is an 84-week placebo-controlled weight-loss trial in type 2 diabetes",
-            "result": "unchecked",
-            "note": "The PDF could not be opened; Novo's Q2 slide says the same"
+            "result": "match",
+            "note": "Slide 43 of the Q1 2026 PDF",
+            "by": "AI"
           },
           {
             "claim": "Q2 presentation, slide 39, keeps that description and calls timelines directional",
             "result": "match",
-            "note": "Slide 39 and its footnote"
+            "note": "Slide 39 of the Q2 2026 PDF and its footnote",
+            "by": "AI"
           },
           {
             "claim": "The August financial report (page 19) covers HF-POLARIS and AMAZE 8, not this date change",
             "result": "match",
-            "note": "Read in a copy of the same report; the last appendices were not read"
+            "note": "SEC filing, page 19; a search for AMAZE 2 found no explanation",
+            "by": "Emma"
           },
           {
             "claim": "That report is dated August 4, 2026",
             "result": "match",
-            "note": "Company announcement No 48 / 2026"
+            "note": "SEC filing, first page",
+            "by": "Emma"
           },
           {
             "claim": "NNC0487-0111 is zenagamtide",
             "result": "match",
-            "note": "The registry lists NNC0487-0111 for AMAZE 2; Novo calls AMAZE the zenagamtide programme"
+            "note": "The registry record names AMAZE 2 and NNC0487-0111 (Emma); both slides place AMAZE 2 in the zenagamtide programme (AI)",
+            "by": "Emma and AI"
           },
           {
             "claim": "No public source explains the date change",
             "result": "match",
-            "note": "Three further searches found none"
+            "note": "Two web searches on 2026-11-19 found no report of a reason",
+            "by": "Emma"
           }
         ]
-      }
+      },
+      "verification_label": "Run 1 reviewed: 8 of 8 claims match · 5 checked by Emma, 3 by AI"
     },
     {
       "no": 3,
